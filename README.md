@@ -1,4 +1,4 @@
-# gp_gym_social_app
+# Strongest Link
 
 Create your awesome group project!
 
