@@ -35,6 +35,9 @@ ALLOWED_HOSTS = []
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = "jwt-auth"
