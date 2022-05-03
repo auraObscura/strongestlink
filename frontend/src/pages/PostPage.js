@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import backendAPI from "../api/StrongestLinkApi"
+import StrongestLinkApi from "../api/StrongestLinkApi"
 import PostDetail from "../components/PostDetail"
 import Comments from "../components/Comments"
 
@@ -20,7 +20,7 @@ function PostPage() {
   }, [post])
 
   const loadPost = async () => {
-    const response = await backendAPI.getPostByID(postID)
+    const response = await StrongestLinkApi.getPostByID(postID)
     console.log(response)
     setPost(response)
   }
@@ -30,7 +30,7 @@ function PostPage() {
       let newComments = []
       if(post.comments){
         for(const commentID of post.comments){
-          newComments.push(await backendAPI.getCommentByID(commentID))
+          newComments.push(await StrongestLinkApi.getCommentByID(commentID))
         }
       }
       setComments(newComments)
@@ -43,7 +43,7 @@ function PostPage() {
       text: event.target.elements["text"].value,
       post: post.id
     }
-    const response = await backendAPI.postComment(commentData)
+    const response = await StrongestLinkApi.postComment(commentData)
     setComments( comments => [...comments,response])
     event.target.elements["text"].value = ""
   }

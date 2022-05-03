@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
-// import backendAPI from "../API/BackendAPI"
-import backendAPI from '../api/ThirdPartyApi'
-import thirdPartyAPI from '../api/ThirdPartyApi'
-// import thirdPartyAPI from "../API/ThirdPartyAPI"
+import StrongestLinkApi from "../api/StrongestLinkApi"
+import thirdPartyAPI from "../api/ThirdPartyApi"
 import PostForm from "../components/PostForm"
 import PostList from "../components/PostList"
 
@@ -16,7 +14,7 @@ function AllPostsPage(){
   }, [imageSelected])
 
   const loadPosts = async () => {
-    const response = await backendAPI.getAllPosts()
+    const response = await StrongestLinkApi.getAllPosts()
     setAllPosts(response ? response : [])
   }
 
@@ -33,7 +31,7 @@ function AllPostsPage(){
         "image" : uploadResponse.url,
         "comments" : []
       }
-      const backendResponse = await backendAPI.postPost(postData)
+      const backendResponse = await StrongestLinkApi.postPost(postData)
       console.log(backendResponse)
     }
     loadPosts()
