@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .serializers import *
 
-# Create your views here.
+
+class PostsViewSet(ModelViewSet):
+    queryset = Posts.objects.all().order_by("-id")
+    serializer_class = PostsSerializer
+
+class CommentsViewSet(ModelViewSet):
+    queryset = Comments.objects.all().order_by("-id")
+    serializer_class = CommentsSerializer
