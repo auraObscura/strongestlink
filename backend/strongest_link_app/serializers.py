@@ -9,19 +9,20 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-
-
-# havent added the user yet
-class PostsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Posts
-        fields = ["id", "caption", "date", "image", "comments"]
-
+    
     password = serializers.CharField(write_only=True)
 
     def create(self, validated_data):
         validated_data["password"] = make_password(validated_data["password"])
         return super().create(validated_data)
+
+# havent added the user yet
+class PostsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Posts
+        fields = ["id", "caption", "date", "image", "comments", "user"]
+
+    
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -40,4 +41,4 @@ class FriendRequestSerializer(serializers.ModelSerializer):
 class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
-        fields = ["id", "text", "post", "date"]
+        fields = ["id", "text", "post", "date", "user"]
