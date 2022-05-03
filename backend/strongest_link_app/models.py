@@ -37,3 +37,17 @@ class FriendRequest(models.Model):
         if self.sender == self.receiver:
             raise ValidationErr("It wouldn't count, anyway")
         return super().clean()
+
+class Location(models.Model):
+    class Type(models.TextChoices):
+        gym = "gym"
+        run = "run"
+        bike = "bike"
+    
+    type = models.CharField(max_length=10, choices = Type.choices)
+    name = models.CharField(max_length=256)
+    description = models.TextField()
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    date = models.DateTimeField(auto_now_add=True, blank=True)
+    

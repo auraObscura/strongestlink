@@ -16,29 +16,27 @@ class UserSerializer(serializers.ModelSerializer):
         validated_data["password"] = make_password(validated_data["password"])
         return super().create(validated_data)
 
-# havent added the user yet
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
         fields = ["id", "caption", "date", "image", "comments", "user"]
-
-    
-
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = "__all__"
 
-
 class FriendRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = FriendRequest
         fields = "__all__"
 
-
-# havent added the user yet
 class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
         fields = ["id", "text", "post", "date", "user"]
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = ["id", "type", "name", "description", "latitude", "longitude"]
