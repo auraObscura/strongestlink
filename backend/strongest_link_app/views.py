@@ -1,6 +1,5 @@
 from rest_framework import viewsets, permissions
-from .models import User, UserProfile, FriendRequest
-from .serializers import FriendRequestSerializer, UserSerializer, UserProfileSerializer
+from .serializers import *
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -21,3 +20,13 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class FriendRequestViewSet(viewsets.ModelViewSet):
     queryset = FriendRequest.objects.all()
     serializer_class = FriendRequestSerializer
+
+
+class PostsViewSet(viewsets.ModelViewSet):
+    queryset = Posts.objects.all().order_by("-id")
+    serializer_class = PostsSerializer
+
+
+class CommentsViewSet(viewsets.ModelViewSet):
+    queryset = Comments.objects.all().order_by("-id")
+    serializer_class = CommentsSerializer

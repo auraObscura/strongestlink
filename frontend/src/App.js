@@ -2,6 +2,8 @@ import './App.css';
 import { useState } from 'react';
 import { Routes, Route} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
+import AllPostsPage from './pages/AllPostsPage';
+import PostPage from './pages/PostPage';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="register" element={<RegisterForm />}/>
           <Route path="login" element={<LoginForm setIsLoggedIn={setIsLoggedIn}/>}/>
         </Route>
+        <Route exact path = "/posts" element = {<AllPostsPage/> }/>
+        <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
       </Routes>
     </div>
   );

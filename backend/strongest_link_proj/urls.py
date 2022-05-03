@@ -18,6 +18,10 @@ from django.urls import path, include
 
 # these are some endpoints that will handle login, logout, signup, and token refresh
 urlpatterns = [
+<<<<<<< HEAD
+    path('admin/', admin.site.urls),
+    path("", include("strongest_link_app.urls"))
+=======
     path("admin/", admin.site.urls),
     path("api/", include("strongest_link_app.urls")),
     # this path below will add a log-in option to the DRF API root view if you aren't already logged in via admin panel or site
@@ -26,4 +30,5 @@ urlpatterns = [
     path("dj-rest-auth/", include("dj_rest_auth.urls")),
     path("dj-rest-auth/token/refresh/", include("dj_rest_auth.urls")),
     path("dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
+>>>>>>> main
 ]
