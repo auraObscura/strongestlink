@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import backendAPI from "../API/BackendAPI"
+import backendAPI from "../api/StrongestLinkApi"
 import PostDetail from "../components/PostDetail"
 import Comments from "../components/Comments"
 

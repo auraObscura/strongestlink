@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
-import backendAPI from "../API/BackendAPI"
-import thirdPartyAPI from "../API/ThirdPartyAPI"
+// import backendAPI from "../API/BackendAPI"
+import backendAPI from '../api/ThirdPartyApi'
+import thirdPartyAPI from '../api/ThirdPartyApi'
+// import thirdPartyAPI from "../API/ThirdPartyAPI"
 import PostForm from "../components/PostForm"
 import PostList from "../components/PostList"
 
