@@ -12,3 +12,5 @@ A fitness-focused social networking app that will allow users to document and sh
 6. There will be a link in the commandline you can click and follow to open a pull request in Github, go ahead and do that
 7. If you need to delete a branch you've pushed up on accident, you can do `git push -d origin branchname` and it will be deleted off of Github.
 
+### Contributors: 
+`const team = ["Ivan Trejo", "Shun Ganas", "Andrew Simpson", "Dajin Chung", "Katarzyna Wegrzynowicz", "Tim Longmore"]`
