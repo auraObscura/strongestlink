@@ -1,3 +1,4 @@
+import apiHelpers from './apiHelpers';
 import axios from 'axios'
 
 const StrongestLinkApi = {}
@@ -24,8 +25,12 @@ StrongestLinkApi.logout = async () => {
   );
 };
 
-StrongestLinkApi.refreshToken = async () => {
+StrongestLinkApi.refreshToken = async (refreshToken) => {
   return await apiHelpers.tryCatchFetch(() =>
-    axios.post(`${TOKEN_BASE}/refresh/`)
+    axios.post(`${TOKEN_BASE}/token/refresh/`, sessionStorage.getItem("refresh_token"))
   );
 };
+
+// internal model calls
+
+export default StrongestLinkApi;

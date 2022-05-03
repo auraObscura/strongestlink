@@ -32,6 +32,10 @@ SITE_ID = 1
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = "jwt-auth"
 
@@ -148,6 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+# these two settings will allow us to allow uploads from users and get access to them while in dev
 MEDIA_URL = "/usermedia/"
 MEDIA_ROOT = BASE_DIR / "usermedia"
 
