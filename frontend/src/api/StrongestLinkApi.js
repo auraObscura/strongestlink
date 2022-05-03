@@ -42,9 +42,10 @@ StrongestLinkApi.postPost = async (postData) => {
 
 StrongestLinkApi.getAllPosts = async () => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}/posts/`), { headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    () => axios.get(`${BASE_URL}/posts/` , { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`
     }})
+  )
 }
 
 StrongestLinkApi.getPostByID = async (postID) => {

@@ -26,7 +26,15 @@ class PostsViewSet(viewsets.ModelViewSet):
     queryset = Posts.objects.all().order_by("-id")
     serializer_class = PostsSerializer
 
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+        return super().perform_create(serializer)
+
 
 class CommentsViewSet(viewsets.ModelViewSet):
     queryset = Comments.objects.all().order_by("-id")
     serializer_class = CommentsSerializer
+
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+        return super().perform_create(serializer)
