@@ -7,6 +7,9 @@ import PostPage from './pages/PostPage';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 
+import Map from './pages/Map/Map'
+import { ChakraProvider, theme } from '@chakra-ui/react'
+
 function App() {
 
   // probably better to set an auth context which I'll probably do, but just to get some conditional rendering on the minimal demo UI I have up to prove working auth decided to go with a state value
@@ -32,8 +35,10 @@ function App() {
         <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user}/>}>
           <Route path="register" element={<RegisterForm />}/>
           <Route path="login" element={<LoginForm setIsLoggedIn={setIsLoggedIn}/>}/>
+        
         </Route>
         <Route exact path = "/posts" element = {<AllPostsPage/> }/>
+        <Route path="/map" element={  <ChakraProvider theme={theme}><Map /></ChakraProvider>}/>
         <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
       </Routes>
     </div>

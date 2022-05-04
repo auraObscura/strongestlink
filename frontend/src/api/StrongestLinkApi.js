@@ -71,4 +71,25 @@ StrongestLinkApi.postComment = async (commentData) => {
   )
 }
 
+
+
+// Google Map Api Pin Creation
+StrongestLinkApi.postPin = async (pinData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/locations/`, pinData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }})
+  )
+}
+
+StrongestLinkApi.getPins = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/locations/` , { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }})
+  )
+}
+
+
+
 export default StrongestLinkApi;
