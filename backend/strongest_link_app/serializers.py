@@ -8,8 +8,6 @@ from .models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
-        read_only_fields = [""]
         depth = 1
 
     password = serializers.CharField(write_only=True)
@@ -28,14 +26,13 @@ class PostsSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = "__all__"
         depth = 1
 
 
 class FriendRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = FriendRequest
-        fields = "__all__"
+        depth = 1
 
 
 class CommentsSerializer(serializers.ModelSerializer):
