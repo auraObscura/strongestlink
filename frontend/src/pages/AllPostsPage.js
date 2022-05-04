@@ -46,7 +46,7 @@ function AllPostsPage(){
           <h1>Newsfeed:</h1>  
         </div>
         <div>
-          <PostList posts = {allPosts} />
+          {allPosts && <PostList posts = {allPosts} /> }§
         </div>
       </div>
   )
