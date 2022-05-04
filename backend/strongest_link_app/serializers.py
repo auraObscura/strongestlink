@@ -62,8 +62,7 @@ class LocationSerializer(serializers.ModelSerializer):
 class WeightliftingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Weightlifting
-        fields = ["id" , "weight" , "user" , "date" , "type" 
-        "longitude" ,"date"]
+        fields = ["id" , "weight" , "user" , "date" , "type"]
 
 class CardioSerializer(serializers.ModelSerializer):
     class Meta:

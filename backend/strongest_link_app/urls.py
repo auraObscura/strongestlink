@@ -9,8 +9,8 @@ r.register("friend-requests", FriendRequestViewSet, basename="friend-request")
 r.register("posts", PostsViewSet, basename="post")
 r.register("comments", CommentsViewSet, basename="comment")
 r.register("locations", LocationViewSet, basename="location")
-r.register("lifts", LocationViewSet, basename="lift")
-r.register("cardio", LocationViewSet, basename="cardio")
+r.register("lifts", WeightliftingViewSet, basename="lift")
+r.register("cardio", CardioViewSet, basename="cardio")
 
 
 urlpatterns = [
