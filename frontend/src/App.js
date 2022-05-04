@@ -6,10 +6,7 @@ import AllPostsPage from './pages/AllPostsPage';
 import PostPage from './pages/PostPage';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import Header from './components/Header';
-
-import Map from './pages/Map/Map'
-import { ChakraProvider, theme } from '@chakra-ui/react'
+import UserProfilePage from './pages/UserProfilePage';
 
 function App() {
 
@@ -35,13 +32,13 @@ function App() {
       <hr />
       <Routes>
         <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user}/>}>
-          <Route path="register" element={<RegisterForm />}/>
-          <Route path="login" element={<LoginForm setIsLoggedIn={setIsLoggedIn}/>}/>
-        
+        <Route path="register" element={<RegisterForm />}/>
+        <Route path="login" element={<LoginForm setIsLoggedIn={setIsLoggedIn}/>}/>
         </Route>
         <Route exact path = "/posts" element = {<AllPostsPage/> }/>
         <Route path="/map" element={  <ChakraProvider theme={theme}><Map /></ChakraProvider>}/>
         <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
+        <Route exact path = "/user/:userID" element = {<UserProfilePage/>}/>
       </Routes>
     </div>
   );

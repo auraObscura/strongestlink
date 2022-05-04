@@ -91,5 +91,16 @@ StrongestLinkApi.getPins = async () => {
 }
 
 
+//methods for User Profile
+StrongestLinkApi.getUserProfileByUserID = async (userID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/profiles/${userID}`, HEADERS))
+}
 
-export default StrongestLinkApi;
+//methods for Friend Requests
+StrongestLinkApi.createFriendRequest = async (friendRequestData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/friend-requests/`, friendRequestData, HEADERS))
+}
+
+export default StrongestLinkApi
