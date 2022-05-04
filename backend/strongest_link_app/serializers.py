@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 
-# from .models import FriendRequest, User, UserProfile
 from .models import *
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        fields = "__all__"
         depth = 1
 
     password = serializers.CharField(write_only=True)
@@ -26,12 +26,14 @@ class PostsSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
+        fields = "__all__"
         depth = 1
 
 
 class FriendRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = FriendRequest
+        fields = "__all__"
         depth = 1
 
 
