@@ -51,7 +51,7 @@ function PostPage() {
 
   return (
   <div>
-    <PostDetail post = {post}/>
+    {post && <PostDetail post = {post}/>}
     <Comments comments = {comments} handleSubmitComment = {handleSubmitComment}/>
   </div>
   )

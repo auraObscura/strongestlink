@@ -9,6 +9,7 @@ function Comments (props) {
         elements.push(
           <div key={`comment${props.comments[i].id}`}>
             <h4>{props.comments[i].text}</h4>
+            <a href={`#/user/${props.comments[i].user.id}`}><p>{props.comments[i].user.username}</p></a>
             <p>{props.comments[i].date}</p>
             <hr></hr>
           </div>

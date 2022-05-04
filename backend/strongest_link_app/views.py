@@ -21,7 +21,6 @@ class FriendRequestViewSet(viewsets.ModelViewSet):
     queryset = FriendRequest.objects.all()
     serializer_class = FriendRequestSerializer
 
-
 class PostsViewSet(viewsets.ModelViewSet):
     queryset = Posts.objects.all().order_by("-id")
     serializer_class = PostsSerializer
@@ -42,3 +41,12 @@ class CommentsViewSet(viewsets.ModelViewSet):
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
+
+class WeightliftingViewSet(viewsets.ModelViewSet):
+    queryset = Weightlifting.objects.all()
+    serializer_class = WeightliftingSerializer
+
+class CardioViewSet(viewsets.ModelViewSet):
+    queryset = Cardio.objects.all()
+    serializer_class = CardioSerializer
+
