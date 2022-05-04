@@ -22,9 +22,11 @@ const LoginForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} method="POST">
-      <input id="username" name="username" type="text" placeholder="Username" />
-      <input id="password" name="password" type="password" placeholder="Password" />
-      <button type="submit">Login</button>
+      <div className="input-container">
+        <input id="username" name="username" type="text" placeholder="Username" />
+        <input id="password" name="password" type="password" placeholder="Password" />
+      </div>
+      <button className="btn" type="submit">Login</button>
     </form>
   )
 }

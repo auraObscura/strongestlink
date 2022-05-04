@@ -26,7 +26,7 @@ const RegisterForm = () => {
       <input id="username" name="username" type="text" placeholder="Username" required />
       <input id="password1" name="password" type="password" placeholder="Password" required minLength="8"/>
       <input id="password2" name="password" type="password" placeholder="Password (Again)" required minLength="8"/>
-      <button type="submit">Register</button>
+      <button className="btn" type="submit">Register</button>
     </form>
   )
 }

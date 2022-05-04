@@ -50,10 +50,10 @@ function PostPage() {
 
 
   return (
-  <div>
+  <section>
     <PostDetail post = {post}/>
     <Comments comments = {comments} handleSubmitComment = {handleSubmitComment}/>
-  </div>
+  </section>
   )
 }
 

@@ -48,6 +48,14 @@ StrongestLinkApi.getAllPosts = async () => {
   )
 }
 
+// StrongestLinkApi.getPostsFromSingleUser = async (user) => {
+//   return await apiHelpers.tryCatchFetch(
+//     () => axios.get(`${BASE_URL}/posts/${user}` , { headers: {
+//       Authorization: `Bearer ${sessionStorage.getItem("access_token")}`
+//     }})
+//   )
+// }
+
 StrongestLinkApi.getPostByID = async (postID) => {
   return await apiHelpers.tryCatchFetch(
     () => axios.get(`${BASE_URL}/posts/${postID}`, { headers: {

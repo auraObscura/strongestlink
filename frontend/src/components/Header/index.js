@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar'
 import './Header.css'
+import logo from '../../assets/logo.png'
 
 function Header(props) {
 
@@ -31,7 +32,7 @@ function Header(props) {
       <div className='header-head'>
         <div className='logo-container'>
           <Link to="/" className="logo">
-            Strongest Link
+            <img className="logo-img" src={logo} alt="Strongest Link" />
           </Link>
         </div>
         {isMobile && 
