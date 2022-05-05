@@ -133,6 +133,13 @@ StrongestLinkApi.deleteFriend = async(userProfileID, userProfileData) => {
     }}))
 }
 
+StrongestLinkApi.editProfile = async (userProfileID, userProfileData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.patch(`${BASE_URL}/profiles/${userProfileID}/`, userProfileData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
 //methods for Friend Requests
 StrongestLinkApi.createFriendRequest = async (friendRequestData) => {
   return await apiHelpers.tryCatchFetch(

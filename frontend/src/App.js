@@ -75,7 +75,7 @@ function App() {
           }
         />
         <Route exact path="map/location" element={<LocationPage />} />
-        <Route exact path="/user/:userID" element={<UserProfilePage />} />
+        <Route exact path="/user/:userID" element={<UserProfilePage user={user} />} />
         <Route exact path="/leaderboard" element={<Leaderboard />} />
         <Route exact path="/workouts" element={<WorkoutPage />} />
       </Routes>
