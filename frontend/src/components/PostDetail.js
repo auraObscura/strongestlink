@@ -1,10 +1,12 @@
 function PostDetail (props) {
   
   return (
-    <div>
+    <div className="post-container">
       <img src={props.post.image}></img>
-      <h3 key={`post#${props.post.id}`}>{props.post.caption}</h3>
-      <p>{props.post.date}</p>
+      <div className="post-details-container">
+        <h3 key={`post#${props.post.id}`}>{props.post.caption}</h3>
+        <p>{props.post.date}</p>
+      </div>
     </div>
   )
 }

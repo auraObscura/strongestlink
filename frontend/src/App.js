@@ -23,7 +23,6 @@ function App() {
     if (foundUser) {
       console.log("founduser: ", foundUser)
       const userId = foundUser.pk
-      // const username = foundUser.username
       const user = foundUser
       setUser(user)
       console.log("user", user)
@@ -42,9 +41,9 @@ function App() {
         
         </Route>
         <Route exact path = "/my-posts" element = {<MyPostsPage user={user}/> }/>
-        <Route exact path = "/posts" element = {<AllPostsPage/> }/>
+        <Route exact path = "/posts" element = {<AllPostsPage user={user}/> }/>
         <Route path="/map" element={  <ChakraProvider theme={theme}><Map /></ChakraProvider>}/>
-        <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
+        <Route exact path = "/posts/:postID" element = {<PostPage user={user}/>}/>
       </Routes>
     </div>
   );

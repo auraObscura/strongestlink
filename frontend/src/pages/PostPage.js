@@ -4,7 +4,7 @@ import StrongestLinkApi from "../api/StrongestLinkApi"
 import PostDetail from "../components/PostDetail"
 import Comments from "../components/Comments"
 
-function PostPage() {
+function PostPage(props) {
 
   const postID = useParams()["postID"]
   const [post, setPost] = useState("")
@@ -36,6 +36,7 @@ function PostPage() {
       setComments(newComments)
     }
   }
+
 
   const handleSubmitComment = async (event) => {
     event.preventDefault()

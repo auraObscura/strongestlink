@@ -7,10 +7,9 @@ function Comments (props) {
     for(let i = 0; i < props.comments.length; i++){
       if(props.comments[i]){
         elements.push(
-          <div key={`comment${props.comments[i].id}`}>
-            <h4>{props.comments[i].text}</h4>
+          <div key={`comment${props.comments[i].id}`} className="comment">
+            <p><span>{props.comments[i].text}</span></p>
             <p>{props.comments[i].date}</p>
-            <hr></hr>
           </div>
         )
       }
@@ -19,8 +18,7 @@ function Comments (props) {
   }
 
   return (
-    <div>
-      <h2>Comments:</h2>
+    <div className="comments-container">
       {props.comments && renderComments()}
       <CommentForm handleSubmitComment = {props.handleSubmitComment}/>
     </div>

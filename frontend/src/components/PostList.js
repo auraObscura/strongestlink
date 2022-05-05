@@ -8,9 +8,11 @@ function PostList (props){
       props.posts.map( 
         post =>
         <div className="post-container" key={`post#${post.id}`}>
-          <a href={`#/posts/${post.id}`}><img src={post.image}></img></a>  
-          <h3>{post.caption}</h3>
-          <p>{post.date}</p>
+          <a href={`#/posts/${post.id}`}><img src={post.image}></img></a>
+          <div className="post-details-container">
+            <h3>{post.caption}</h3>
+            <p>{post.date}</p>
+          </div>
         </div>
         )
       }

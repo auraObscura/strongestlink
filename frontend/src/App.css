@@ -87,8 +87,13 @@ form input {
   font-size: 1rem;
 }
 
-.posts-form {
+.posts-form,
+.comment-form {
   width: 50%;
+}
+
+.comment-form {
+  width: 100%;
 }
 
 .input-img {
@@ -102,23 +107,94 @@ form input {
 }
 
 .post-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .post-container img {
-  min-width: 500px;
-  max-width: 500px;
-  height: 400px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid var(--neutral--gray);
+}
+
+.post-details-container,
+.comments-container {
+  min-width: 250px;
+  max-width: 250px;
+  display: flex;
+}
+
+.post-details-container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments-container {
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-details-container h3 {
+  color: var(--neutral--gray);
 }
 
 .container {
   width: 100%;
 }
 
+.submit {
+  cursor: pointer;
+}
+
 
 @media (min-width: 768px) {
-  .posts-form {
+  .posts-form, 
+  .comment-form {
     width: 20%;
+  }
+
+  .post-container {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .post-container img {
+    min-width: 500px;
+    max-width: 500px;
+    height: 400px;
+  }
+  
+  .post-details-container,
+.comments-container {
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.post-details-container {
+  margin-left: 2rem;
+  justify-content: flex-start;
+}
+
+.post-details-container p {
+  margin-left: 1rem;
+}
+
+.comment-form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
   }
 }
