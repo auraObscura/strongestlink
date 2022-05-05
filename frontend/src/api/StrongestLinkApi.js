@@ -92,15 +92,69 @@ StrongestLinkApi.getPins = async () => {
 
 
 //methods for User Profile
-StrongestLinkApi.getUserProfileByUserID = async (userID) => {
+StrongestLinkApi.getUserProfileByID = async (userProfileID) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}/profiles/${userID}`, HEADERS))
+    () => axios.get(`${BASE_URL}/profiles/${userProfileID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+StrongestLinkApi.createUserProfile = async(userProfileData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.post(`${BASE_URL}/profiles/`, userProfileData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+StrongestLinkApi.deleteFriend = async(userProfileID, userProfileData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.patch(`${BASE_URL}/profiles/${userProfileID}/`, userProfileData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
 }
 
 //methods for Friend Requests
 StrongestLinkApi.createFriendRequest = async (friendRequestData) => {
   return await apiHelpers.tryCatchFetch(
-    () => axios.get(`${BASE_URL}/friend-requests/`, friendRequestData, HEADERS))
+    () => axios.post(`${BASE_URL}/friend-requests/`, friendRequestData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
 }
+
+StrongestLinkApi.getFriendRequestByID = async (requestID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/friend-requests/${requestID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+StrongestLinkApi.deleteRequestByID = async (requestID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}/friend-requests/${requestID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+StrongestLinkApi.acceptFriendRequest = async (requestID , friendRequestData) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.patch(`${BASE_URL}/friend-requests/${requestID}/`, friendRequestData, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+
+
+
+//methods for User
+StrongestLinkApi.getUserByID = async (userID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/users/${userID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+
+
+
 
 export default StrongestLinkApi
