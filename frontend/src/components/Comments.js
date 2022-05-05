@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import CommentForm from "./CommentForm"
-
-function Comments (props) {
-=======
 import CommentForm from "./CommentForm";
->>>>>>> main
 
 function Comments(props) {
   const renderComments = () => {
@@ -13,8 +7,12 @@ function Comments(props) {
       if (props.comments[i]) {
         elements.push(
           <div key={`comment${props.comments[i].id}`} className="comment">
-            <p><span>{props.comments[i].text}</span></p>
-            <a href={`#/user/${props.comments[i].user.id}`}><p>{props.comments[i].user.username}</p></a>
+            <p>
+              <span>{props.comments[i].text}</span>
+            </p>
+            <a href={`#/user/${props.comments[i].user.id}`}>
+              <p>{props.comments[i].user.username}</p>
+            </a>
             <p>{props.comments[i].date}</p>
           </div>
         );
@@ -31,4 +29,4 @@ function Comments(props) {
   );
 }
 
-export default Comments
+export default Comments;
