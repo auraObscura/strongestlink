@@ -9,6 +9,9 @@ function PostList(props) {
             </a>
             <div className="post-details-container">
               <h3>{post.caption}</h3>
+              <a href={`#/user/${post.user.id}`}>
+                <p>{post.user.username}</p>
+              </a>
               <p>{post.date}</p>
             </div>
           </div>

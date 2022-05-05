@@ -20,7 +20,7 @@ class Comments(models.Model):
 
 class UserProfile(models.Model):
     class Gender(models.TextChoices):
-        unspecified = ""
+        unspecified = "Unspecified"
         male = "Male"
         female = "Female"
 
@@ -29,7 +29,7 @@ class UserProfile(models.Model):
     profile_img = models.URLField(blank=True, null=True)
     weight = models.FloatField(blank=True, null=True)
     about_me = models.TextField(null=True, blank=True)
-    gender = models.CharField(max_length=10, choices = Gender.choices, null=True, blank=True)
+    gender = models.CharField(max_length=15, choices = Gender.choices, null=True, blank=True)
 
 
 class FriendRequest(models.Model):

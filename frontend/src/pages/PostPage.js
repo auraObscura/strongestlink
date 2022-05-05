@@ -4,7 +4,7 @@ import StrongestLinkApi from "../api/StrongestLinkApi";
 import PostDetail from "../components/PostDetail";
 import Comments from "../components/Comments";
 
-function PostPage(props) {
+function PostPage() {
   const postID = useParams()["postID"];
   const [post, setPost] = useState("");
   const [comments, setComments] = useState("");
@@ -47,10 +47,10 @@ function PostPage(props) {
   };
 
   return (
-    <section>
-      <PostDetail post={post} />
+    <div>
+      {post && <PostDetail post={post} />}
       <Comments comments={comments} handleSubmitComment={handleSubmitComment} />
-    </section>
+    </div>
   );
 }
 
