@@ -34,4 +34,9 @@ export const navData = [
     "url": "workouts",
     "loggedin": true,
   },
+  {
+    "name": "location",
+    "url": "location",
+    "loggedin": true,
+  },
 ]

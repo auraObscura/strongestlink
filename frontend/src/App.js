@@ -11,6 +11,7 @@ import LoginForm from './components/LoginForm';
 import MapPage from './pages/MapPage';
 import GymPage from './pages/GymPage';
 import WorkoutPage from './pages/WorkoutPage';
+import LocationPage from './pages/LocationPage'
         
 import Map from './pages/Map/Map'
 import { ChakraProvider, theme } from '@chakra-ui/react'
@@ -33,6 +34,7 @@ function App() {
     }
   }, [])
 
+  
   // HashRouter has been elevated to index.js, I find it works better like that if your routing structure gets complicated
   return (
     <div className="App">
@@ -47,9 +49,10 @@ function App() {
         <Route exact path = "/my-posts/" element = {<MyPostsPage/> }/>
         <Route exact path = "/posts" element = {<AllPostsPage/> }/>
         <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
-        <Route exact path = "/map" element = { <ChakraProvider theme={theme}><Map /></ChakraProvider>} />
+        <Route exact path = "/map" element = { <ChakraProvider theme={theme}><Map user={user} /></ChakraProvider>} />
         {/* leaderboard on gym page */}
-        <Route exact path = "/gym" element = {<GymPage/> }/>
+        <Route exact path = "/gym" element = {<GymPage /> }/>
+        <Route exact path = "map/location" element = {<LocationPage /> }/>
         <Route exact path = "/workouts" element = {<WorkoutPage/> }/>
 
       </Routes>

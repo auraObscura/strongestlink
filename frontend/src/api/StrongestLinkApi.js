@@ -91,5 +91,14 @@ StrongestLinkApi.getPins = async () => {
 }
 
 
+StrongestLinkApi.deletePin = async (locationId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}/locations/${locationId}` , { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }})
+  )
+}
+
+
 
 export default StrongestLinkApi;

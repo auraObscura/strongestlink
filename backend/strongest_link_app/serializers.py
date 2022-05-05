@@ -46,4 +46,4 @@ class CommentsSerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ["id", "type", "name", "description", "latitude", "longitude"]
+        fields = ["id", "type", "name", "description", "latitude", "longitude", "attendees"]
