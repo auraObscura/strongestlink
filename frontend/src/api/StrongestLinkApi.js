@@ -93,6 +93,14 @@ StrongestLinkApi.getPins = async () => {
   )
 }
 
+StrongestLinkApi.getUserByID = async (userID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/users/${userID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+
 
 //methods for User Profile
 StrongestLinkApi.getUserProfileByID = async (userProfileID) => {

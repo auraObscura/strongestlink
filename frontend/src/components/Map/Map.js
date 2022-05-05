@@ -69,7 +69,7 @@ function Map() {
 
 
   return (
-    <div style={{ width: '95%', height: '500px' }} >
+    <div style={{ height: '100vh' }} >
       <Box position='absolute' left={0} top={40} h='80%' w='100%'>
         {/* Google Map Box */}
         <GoogleMap
@@ -109,23 +109,14 @@ function Map() {
         </GoogleMap>
       </Box>
       <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"      
-        p={0}
+        p={4}
         borderRadius='lg'
-        mt={4}
-        // bgColor='white'
-        // shadow='base'
-        // minW='container.sm'
+        m={4}
+        bgColor='white'
+        shadow='base'
+        minW='container.md'
         zIndex='1'>
-        <ButtonGroup 
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flex='1' 
-          width='100%'
-        >
+        <ButtonGroup>
           <Button onClick={getLocation}>Click to find location</Button>
           <Button onClick={() => getMapMarkers()}>Click for data</Button>
         </ButtonGroup>

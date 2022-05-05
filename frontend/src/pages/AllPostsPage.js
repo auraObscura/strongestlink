@@ -40,16 +40,15 @@ function AllPostsPage(){
   
 
   return (
-      <div>
-        <h1>Strongest Feed</h1>
+      <section>
         <PostForm loadPosts = {loadPosts} handleSubmitPost = {handleSubmitPost} setImageSelected = {setImageSelected}/>
-        <div>
-          <h2>Newsfeed:</h2>  
+        <div className="container">
+          <h1>Newsfeed:</h1>  
         </div>
-        <div>
-          {allPosts && <PostList posts = {allPosts} />}
+        <div className="container">
+          {allPosts && <PostList posts = {allPosts} /> }
         </div>
-      </div>
+      </section>
   )
 }
 
