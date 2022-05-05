@@ -1,61 +1,29 @@
-<<<<<<< HEAD
-import CommentForm from "./CommentForm"
+import CommentForm from "./CommentForm";
 
-function Comments (props) {
-
+function Comments(props) {
   const renderComments = () => {
-    let elements = []
-    for(let i = 0; i < props.comments.length; i++){
-      if(props.comments[i]){
+    let elements = [];
+    for (let i = 0; i < props.comments.length; i++) {
+      if (props.comments[i]) {
         elements.push(
           <div key={`comment${props.comments[i].id}`} className="comment">
-            <p><span>{props.comments[i].text}</span></p>
+            <p>
+              <span>{props.comments[i].text}</span>
+            </p>
             <p>{props.comments[i].date}</p>
           </div>
-        )
+        );
       }
     }
-    return elements
-  }
+    return elements;
+  };
 
   return (
     <div className="comments-container">
       {props.comments && renderComments()}
-      <CommentForm handleSubmitComment = {props.handleSubmitComment}/>
+      <CommentForm handleSubmitComment={props.handleSubmitComment} />
     </div>
-  )
+  );
 }
 
-=======
-import CommentForm from "./CommentForm"
-
-function Comments (props) {
-
-  const renderComments = () => {
-    let elements = []
-    for(let i = 0; i < props.comments.length; i++){
-      if(props.comments[i]){
-        elements.push(
-          <div key={`comment${props.comments[i].id}`}>
-            <h4>{props.comments[i].text}</h4>
-            <a href={`#/user/${props.comments[i].user.id}`}><p>{props.comments[i].user.username}</p></a>
-            <p>{props.comments[i].date}</p>
-            <hr></hr>
-          </div>
-        )
-      }
-    }
-    return elements
-  }
-
-  return (
-    <div>
-      <h2>Comments:</h2>
-      {props.comments && renderComments()}
-      <CommentForm handleSubmitComment = {props.handleSubmitComment}/>
-    </div>
-  )
-}
-
->>>>>>> main
-export default Comments
+export default Comments;
