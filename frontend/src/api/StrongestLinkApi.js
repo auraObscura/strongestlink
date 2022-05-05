@@ -101,6 +101,15 @@ StrongestLinkApi.getUserByID = async (userID) => {
 }
 
 
+StrongestLinkApi.deletePin = async (locationId) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.delete(`${BASE_URL}/locations/${locationId}` , { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }})
+  )
+}
+
+
 
 //methods for User Profile
 StrongestLinkApi.getUserProfileByID = async (userProfileID) => {
