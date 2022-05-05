@@ -12,7 +12,6 @@ function FriendRequests (props) {
               <button onClick ={() => props.handleRejectRequest(props.friendRequests[i].id)}>Reject</button>
              </p>
           </div>
-         
           )
         }
       } 
