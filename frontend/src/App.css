@@ -113,6 +113,7 @@ form input {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .post-container img {
@@ -130,6 +131,7 @@ form input {
   min-width: 250px;
   max-width: 250px;
   display: flex;
+  justify-content: flex-start;
 }
 
 .post-details-container {
@@ -260,12 +262,13 @@ h1 {
 
 .caption {
   margin-bottom: 0;
+  text-align: left;
 }
 
 .post-author {
-  padding-left: 5px;
   font-size: 1rem;
   color: var(--neutral--light);
+  padding-right: .5rem;
 }
 
 .comment-text {
@@ -279,6 +282,7 @@ h1 {
   color: var(--neutral--light);
   font-weight: 600;
   font-size: .9rem;
+  text-align: right;
 }
 
 @media(min-width: 950px) {
