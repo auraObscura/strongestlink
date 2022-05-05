@@ -7,9 +7,13 @@ import PostPage from './pages/PostPage';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import UserProfilePage from './pages/UserProfilePage';
-import Map from './pages/Map/Map';
-import{ ChakraProvider, theme } from "@chakra-ui/react"
 import Header from './components/Header';
+import Map from './pages/Map/Map';
+import Leaderboard from './pages/Leaderboard/LeaderboardPage';
+import MyPostsPage from './pages/MyPostsPage';
+import WorkoutPage from './pages/WorkoutPage';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+
 
 function App() {
 
@@ -20,7 +24,7 @@ function App() {
   useEffect(() => {
     const foundUser = JSON.parse(sessionStorage.getItem("user"));
     if (foundUser) {
-      console.log("founduser username: ", foundUser.username)
+      // console.log("founduser username: ", foundUser.username)
       const username = foundUser.username
       setUser(foundUser)
       console.log("user", user)
@@ -31,17 +35,20 @@ function App() {
   return (
     <div className="App">
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser={setUser} />
-      <h1>Welcome to Strongest Link</h1>
-      <hr />
+      {/* <h1>Welcome to Strongest Link</h1> */}
+      {/* <hr /> */}
       <Routes>
         <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} user={user} setUser ={setUser}/>}>
         <Route path="register" element={<RegisterForm />}/>
         <Route path="login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} setUser ={setUser}/>}/>
         </Route>
+        <Route exact path = "/my-posts" element = {<MyPostsPage/> }/>
         <Route exact path = "/posts" element = {<AllPostsPage/> }/>
-        <Route path="/map" element={  <ChakraProvider theme={theme}><Map /></ChakraProvider>}/>
+        <Route exact path = "/map" element = { <ChakraProvider theme={theme}><Map /></ChakraProvider>} />
         <Route exact path = "/posts/:postID" element = {<PostPage/>}/>
-        <Route exact path = "/user/:userID" element = {<UserProfilePage user={user}/>}/>
+        <Route exact path = "/user/:userID" element = {<UserProfilePage/>}/>
+        <Route exact path = "/leaderboard" element = {<Leaderboard/>}/>
+        <Route exact path = "/workouts" element = {<WorkoutPage/>}/>
       </Routes>
     </div>
   );

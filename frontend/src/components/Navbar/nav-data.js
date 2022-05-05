@@ -34,4 +34,9 @@ export const navData = [
     "url": "workouts",
     "loggedin": true,
   },
+  {
+    "name": "Leaderboard",
+    "url": "leaderboard",
+    "loggedin": true,
+  },
 ]

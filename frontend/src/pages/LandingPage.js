@@ -17,7 +17,9 @@ const LandingPage = (props) => {
 
   return (
     <div>
-    { props.isLoggedIn && <p>Excellent, welcome to the club{props.user ? `, ${props.user.username}!` : "!"}</p>}
+      <h1> Welcome to Strongest Link</h1>
+      <hr />
+    { props.isLoggedIn && <p>Excellent, welcome to the club{props.user ? `, ${props.user}!` : "!"}</p>}
     <p>This place is the best.  But you can't come in unless you have an account</p>
     { props.isLoggedIn || <button onClick={handleRegister}>Register Account</button>}
     { props.isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <button onClick={handleLogin}>Login</button>}
