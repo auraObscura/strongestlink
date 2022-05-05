@@ -17,6 +17,11 @@ const RegisterForm = () => {
       sessionStorage.setItem("access_token", data.access_token);
       sessionStorage.setItem("refresh_token", data.refresh_token);
       sessionStorage.setItem("user", JSON.stringify(data.user));
+      const userProfileData = {
+        user : data.user.pk
+      }
+      const userProfileResponse = await StrongestLinkApi.createUserProfile(userProfileData)
+      console.log(userProfileResponse)
       nav("/login");
     }
   }

@@ -8,4 +8,4 @@ function WorkoutPage() {
   )
 }
 
-export default WorkoutPage
+export default WorkoutPage;
