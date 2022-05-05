@@ -2,10 +2,10 @@ import React from 'react'
 
 function WorkoutPage() {
   return (
-    <div>
+    <section>
       Placeholder workout page
-    </div>
+    </section>
   )
 }
 
-export default WorkoutPage
+export default WorkoutPage;

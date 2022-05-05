@@ -1,11 +1,8 @@
 function CommentForm(props){
   return (
-    <form onSubmit={props.handleSubmitComment}>
-      <label>
-        Comment:
-        <input type="text" name="text"/>
-      </label>
-      <input type="submit" value="Submit" />
+    <form class="comment-form" onSubmit={props.handleSubmitComment}>
+      <input type="text" name="text" placeholder="Enter comment"/>
+      <input type="submit" value="Submit" className="submit" />
     </form>
   )
 }
