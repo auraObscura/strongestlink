@@ -122,6 +122,7 @@ form input {
   object-fit: cover;
   border-radius: 50px;
   border: 1px solid var(--neutral--gray);
+  background-color: var(--neutral--gray);
 }
 
 .post-details-container,
@@ -147,6 +148,24 @@ form input {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  border-top: 1px solid var(--primary--light);
+  padding-top: 10px;
+}
+
+.comment-attribution {
+  display: flex;
+}
+
+.commenter {
+  color: var(--primary--dark);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.commenter:hover {
+  text-decoration: underline;
 }
 
 .post-details-container h3 {
@@ -241,6 +260,12 @@ h1 {
 
 .caption {
   margin-bottom: 0;
+}
+
+.comment-text {
+  margin-top: 2px;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .time {

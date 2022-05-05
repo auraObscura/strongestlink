@@ -1,3 +1,4 @@
+import { convertTimestamp } from "../utils/helpers"
 function PostList (props){
 
   return (
@@ -10,8 +11,10 @@ function PostList (props){
         <div className="post-container" key={`post#${post.id}`}>
           <a href={`#/posts/${post.id}`}><img src={post.image}></img></a>
           <div className="post-details-container">
-            <h3>{post.caption}</h3>
-            <p>{post.date}</p>
+            <h3 className="caption">{post.caption}</h3>
+            {post.date && 
+            <p className="time">{convertTimestamp(post.date)}</p>
+            }
           </div>
         </div>
         )

@@ -1,4 +1,5 @@
 import CommentForm from "./CommentForm"
+import { convertTimestamp } from '../utils/helpers'
 
 function Comments (props) {
 
@@ -8,8 +9,16 @@ function Comments (props) {
       if(props.comments[i]){
         elements.push(
           <div key={`comment${props.comments[i].id}`} className="comment">
-            <p><span>{props.comments[i].text}</span></p>
-            <p>{props.comments[i].date}</p>
+            <div className="comment-attribution">
+              <a className="commenter" href={`#/user/${props.comments[i].user.id}`}>
+                <p className="comment-text">
+                  {props.comments[i].user.username}</p>
+              </a>
+              <p className="comment-text"><span>{props.comments[i].text}</span></p>
+            </div>
+            {props.comments && 
+              <p className="time">{convertTimestamp(props.comments[i].date)}</p>
+            }
           </div>
         )
       }
