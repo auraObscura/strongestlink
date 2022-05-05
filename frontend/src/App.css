@@ -239,6 +239,17 @@ h1 {
   text-transform: uppercase;
 }
 
+.caption {
+  margin-bottom: 0;
+}
+
+.time {
+  margin-top: 2px;
+  color: var(--neutral--light);
+  font-weight: 600;
+  font-size: .9rem;
+}
+
 @media(min-width: 950px) {
   .my-profile-container {
     flex-flow: row wrap;
