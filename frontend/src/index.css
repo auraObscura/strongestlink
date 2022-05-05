@@ -13,4 +13,5 @@ body {
   --primary--light: #cee3e9;
   --primary--dark: rgb(0, 52, 26);
   --active: hsl(152, 100%, 97%);
+  --radius-val: 10px;
 }

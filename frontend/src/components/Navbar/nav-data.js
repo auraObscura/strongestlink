@@ -10,7 +10,7 @@ export const navData = [
     loggedin: false,
   },
   {
-    name: "My Posts",
+    name: "My Profile",
     url: "my-posts",
     loggedin: true,
   },
@@ -24,21 +24,21 @@ export const navData = [
     url: "map",
     loggedin: true,
   },
-  {
-    name: "My Gym",
-    url: "gym",
-    loggedin: true,
-  },
-  {
-    name: "Workouts",
-    url: "workouts",
-    loggedin: true,
-  },
-  {
-    name: "location",
-    url: "location",
-    loggedin: true,
-  },
+  // {
+  //   name: "My Gym",
+  //   url: "gym",
+  //   loggedin: true,
+  // },
+  // {
+  //   name: "Workouts",
+  //   url: "workouts",
+  //   loggedin: true,
+  // },
+  // {
+  //   name: "location",
+  //   url: "location",
+  //   loggedin: true,
+  // },
   {
     name: "Leaderboard",
     url: "leaderboard",
