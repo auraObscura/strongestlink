@@ -41,9 +41,10 @@ function AllPostsPage(){
 
   return (
       <div>
+        <h1>Strongest Feed</h1>
         <PostForm loadPosts = {loadPosts} handleSubmitPost = {handleSubmitPost} setImageSelected = {setImageSelected}/>
         <div>
-          <h1>Newsfeed:</h1>  
+          <h2>Newsfeed:</h2>  
         </div>
         <div>
           {allPosts && <PostList posts = {allPosts} />}
