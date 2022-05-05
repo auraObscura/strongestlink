@@ -3,17 +3,23 @@ import PostList from "../components/PostList"
 import PostForm from "../components/PostForm"
 import StrongestLinkApi from "../api/StrongestLinkApi"
 import anon from '../assets/sl-user.png'
+import thirdPartyAPI from '../api/ThirdPartyApi'
 
 function MyPostsPage(props) {
 
   const [profileData, setProfileData] = useState([])
   const [myPosts, setMyPosts] = useState(null)
+  const [imageSelected, setImageSelected] = useState("")
 
   useEffect(() => {
     console.log("USER in my posts: ", props.user)
     loadMyPosts()
     loadMyProfile()
   }, [])
+
+  useEffect(() => {
+    loadMyPosts()
+}, [imageSelected])
 
   const loadMyPosts = async () => {
     const response = await StrongestLinkApi.getAllPosts()
@@ -35,6 +41,27 @@ function MyPostsPage(props) {
       console.log("profile dataaa: ", profileData)
     }
   }
+
+  const handleSubmitPost = async (event) => {
+    event.preventDefault()
+    const formData  = new FormData()
+    formData.append("file", imageSelected)
+    formData.append("upload_preset","sfsjb33d" )
+    const uploadResponse = await thirdPartyAPI.uploadPhoto(formData)
+    console.log(uploadResponse)
+    if(uploadResponse){
+      const postData = {
+        "caption" : event.target.elements["caption"].value,
+        "image" : uploadResponse.url,
+        "comments" : []
+      }
+      const backendResponse = await StrongestLinkApi.postPost(postData)
+      console.log(backendResponse)
+    }
+    loadMyPosts()
+    event.target.elements["caption"].value = ""
+  }
+
 
 
   return (
@@ -70,6 +97,8 @@ function MyPostsPage(props) {
       </div>
 
       <div className='my-posts-container'>
+        <h1>New Post</h1>
+        <PostForm loadPosts = {loadMyPosts} handleSubmitPost = {handleSubmitPost} setImageSelected = {setImageSelected}/>
         <h1>My Posts</h1>
         {myPosts && <PostList posts={myPosts} /> }
       </div>
