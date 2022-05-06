@@ -128,6 +128,13 @@ StrongestLinkApi.addAttendee = async (locationID, newAttendee) => {
 
 
 //methods for User Profile
+StrongestLinkApi.getAllUserProfiles = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/profiles/`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
 StrongestLinkApi.getUserProfileByID = async (userProfileID) => {
   return await apiHelpers.tryCatchFetch(
     () => axios.get(`${BASE_URL}/profiles/${userProfileID}`, { headers: {

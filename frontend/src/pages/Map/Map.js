@@ -89,7 +89,7 @@ function Map(props) {
     );
     setGymarkers(gymMaterialMarker);
   };
-
+  
   const icon = "./scg.svg"
 
   return (
@@ -138,7 +138,6 @@ function Map(props) {
               }}
             />
           ))}
-
           {selectedGym ? (
             <InfoWindow
               className="infoWindow"
@@ -150,7 +149,6 @@ function Map(props) {
                 <GymImage />
                 {/* <p>{selectedGym.type}</p> */}
                 <div className="button-group">
-                  {/* {console.log( 'this is the gym', selectedGym.id)} */}
                   <Button className="info-btn">
                     <NavLink className="gymLink" to={`location/${selectedGym.id}`}>
                       Link to gym page
@@ -160,7 +158,6 @@ function Map(props) {
               </div>
             </InfoWindow>
           ) : null}
-
           {/* ////////////////////// (Location of User ) ////////////////////////// */}
           {markers.map((marker) => (
             <Marker
@@ -212,9 +209,6 @@ function Map(props) {
         p={0}
         borderRadius="lg"
         mt={4}
-        // bgColor='white'
-        // shadow='base'
-        // minW='container.sm'
         zIndex="1"
       >
         <ButtonGroup
