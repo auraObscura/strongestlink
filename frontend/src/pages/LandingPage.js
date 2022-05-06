@@ -37,7 +37,7 @@ const LandingPage = (props) => {
     <h2>This place is the best!  But you can't come in unless you have an account</h2>
     { props.isLoggedIn || <button className="btn" onClick={handleRegister}>Register Account</button>}
     { props.isLoggedIn ? <button className="btn" onClick={handleLogout}>Logout</button> : <button className="btn" onClick={handleLogin}>Login</button>}
-    {props.isLoggedIn && <SearchBar profiles = {profiles}/>}
+    {(props.isLoggedIn && profiles) && <SearchBar profiles = {profiles}/>}
     <Outlet />
   </section>
   )
