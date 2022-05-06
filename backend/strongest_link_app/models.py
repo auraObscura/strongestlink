@@ -63,7 +63,6 @@ class Location(models.Model):
     date = models.DateTimeField(auto_now_add=True, blank=True)
     attendees =  models.ManyToManyField(UserProfile, blank=True)
 
-
 class Weightlifting(models.Model):
     class Type(models.TextChoices):
         bench = "Bench"
