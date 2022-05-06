@@ -119,4 +119,12 @@ StrongestLinkApi.getLifts = async () => {
 
   return allExercises.data
 }
+
+StrongestLinkApi.getCardio = async () => {
+  const allCardio = await axios.get(`${BASE_URL}/cardio/`, { headers: {
+  Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+}})
+
+  return allCardio.data
+}
 export default StrongestLinkApi

@@ -1,11 +1,12 @@
 import React from 'react'
 import Boardprofiles from './Boardprofiles';
 import StrongestLinkApi from '../../api/StrongestLinkApi';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Leaderboard() {
 
   const [exerciseData, setExerciseData] = useState([])
+  const [cardioData, setCardioData] = useState([])
 
   const handleClick = async (e) => {
     const exercisesAll = await StrongestLinkApi.getLifts()
@@ -15,7 +16,56 @@ function Leaderboard() {
       console.log(filteredExercise)
     
     setExerciseData(filteredExercise)
+    setCardioData([])
   }
+
+  const cardioClick = async (e) => {
+    const allCardio = await StrongestLinkApi.getCardio()
+    const filteredCardio = allCardio.filter(exercise => exercise.type === e.target.id)
+      setCardioData(filteredCardio)
+      setExerciseData([])
+  }
+  //rendering lift stats
+  const renderLifts = () => {
+    if(handleClick){
+    return(
+      <ul>
+      {exerciseData.map((exercise, index) => {
+        return(
+          <div key={`exercise-${exercise.id}`}>
+            <li>
+              <h3>{index + 1 + ". " } Name of User</h3>
+            </li>
+            <li>
+              {exercise.weight} lbs
+              <hr/>
+            </li>
+          </div>
+        )})}
+    </ul>
+    )}
+  }
+  //rendering cardio stats
+  const renderCardio = () => {
+    if (cardioClick){
+      return(
+        <ul>
+        {cardioData.map((exercise, index) => {
+          return(
+            <div key={`cardio-${exercise.id}`}>
+              <li>
+                <h3> {index + 1 + ". "} Cardio User</h3>
+              </li>
+              <li>
+                {exercise.miles} miles
+                <hr/>
+              </li>
+            </div>
+          )})}
+      </ul>
+      )}
+    }
+
 
   return (
     <div>
@@ -24,23 +74,16 @@ function Leaderboard() {
         <button onClick={handleClick} id="Bench">Bench</button>
         <button onClick={handleClick} id="Squat">Squat</button>
         <button onClick={handleClick} id="Deadlift">Deadlift</button>
-        <button onClick={handleClick} id="Miles">Miles</button>
+        <button onClick={cardioClick} id="Run">Miles</button>
+        <button onClick={cardioClick} id="Bike">Bike</button>
       </div>
       <hr />
-        <ul>
-          {exerciseData.map((exercise, index) => {
-            return(
-              <div key={index}>
-                <li>
-                  <h3>{index + 1 + ". " } Name of User</h3>
-                </li>
-                <li>
-                  {exercise.weight} lbs
-                  <hr/>
-                </li>
-              </div>
-            )})}
-        </ul>
+      <div>
+        {renderLifts()}
+      </div>
+        <div>
+          {renderCardio()}
+        </div>
       <Boardprofiles profileuser="Placeholder"/>
     </div>
   )
