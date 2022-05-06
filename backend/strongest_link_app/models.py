@@ -26,7 +26,7 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     friends = models.ManyToManyField("self", blank=True)
-    profile_img = models.URLField(blank=True, null=True)
+    profile_img = models.URLField(blank=True, null=True, default="https://files.slack.com/files-pri/T0EGY7J3X-F03EEAXU9EE/sl-user.png")
     weight = models.FloatField(blank=True, null=True)
     about_me = models.TextField(null=True, blank=True)
     gender = models.CharField(max_length=15, choices = Gender.choices, null=True, blank=True)
@@ -61,7 +61,9 @@ class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
-    attendees = models.CharField(max_length=256, blank=True)
+    # attendees = models.CharField(max_length=256, blank=True)
+    attendees =  models.ManyToManyField(UserProfile, blank=True)
+
 
 class Weightlifting(models.Model):
     class Type(models.TextChoices):

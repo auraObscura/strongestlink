@@ -14,7 +14,7 @@ import MyPostsPage from "./pages/MyPostsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
 
-import { ChakraProvider, theme } from "@chakra-ui/react";
+
 
 function App() {
   // probably better to set an auth context which I'll probably do, but just to get some conditional rendering on the minimal demo UI I have up to prove working auth decided to go with a state value
@@ -69,12 +69,12 @@ function App() {
           exact
           path="/map"
           element={
-            <ChakraProvider theme={theme}>
+            
               <Map user={user} />
-            </ChakraProvider>
+          
           }
         />
-        <Route exact path="map/location" element={<LocationPage />} />
+        <Route exact path="map/location/:locationID" element={<LocationPage user={user} />} />
         <Route
           exact
           path="/user/:userID"

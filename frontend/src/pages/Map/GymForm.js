@@ -8,6 +8,7 @@ function GymForm(props) {
   const user = props.username;
 
   const handleSaveWorkouts = async (e) => {
+
     e.preventDefault();
     console.log(e.target.elements);
     const gymData = {
@@ -16,8 +17,9 @@ function GymForm(props) {
       description: "a location",
       latitude: e.target.elements["lat"].value,
       longitude: e.target.elements["lng"].value,
-      attendees: user.username,
+      attendees: [1, 2]
     };
+
     const data = await StrongestLinkApi.postPin(gymData);
     console.log(gymData);
     props.refresh();
