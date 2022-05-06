@@ -11,6 +11,7 @@ function MyPostsPage(props) {
   const [profileData, setProfileData] = useState([])
   const [myPosts, setMyPosts] = useState(null)
   const [imageSelected, setImageSelected] = useState("")
+  const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
     console.log("USER in my posts: ", props.user)
@@ -24,11 +25,9 @@ function MyPostsPage(props) {
 
   const loadMyPosts = async () => {
     const response = await StrongestLinkApi.getAllPosts()
-    // console.log("response: ", response)
 
     if (response) {
       const filteredData = response.filter(post => post.user.id == props.user.pk)
-      // console.log("filtered data: ", filteredData)
       setMyPosts(filteredData)
     }
   }
@@ -63,7 +62,17 @@ function MyPostsPage(props) {
     event.target.elements["caption"].value = ""
   }
 
+  const handleEdit = () => {
+    // event.preventDefault()
+    if (isEditing) {
+      setIsEditing(false)
+      console.log("is editing false? ", isEditing)
 
+  } else {
+    setIsEditing(true)
+    console.log("is editing true? ", isEditing)
+    }
+  }
 
   return (
     <section className='my-profile-container'>
@@ -94,10 +103,11 @@ function MyPostsPage(props) {
             }
           </div>
         </div>
-        {/* <button className='btn'>Edit Profile</button> */}
-        <EditProfileForm setImageSelected={setImageSelected} />
+        {!isEditing && <button className='btn profile' onClick={handleEdit}>Edit Profile</button>}
+        {isEditing && <EditProfileForm setImageSelected={setImageSelected} /> }
+        {isEditing && <button className='btn profile' onClick={handleEdit}>Cancel Edit</button>}
+                
       </div>
-
       <div className='my-posts-container'>
         <h1>New Post</h1>
         <PostForm loadPosts = {loadMyPosts} handleSubmitPost = {handleSubmitPost} setImageSelected = {setImageSelected}/>
