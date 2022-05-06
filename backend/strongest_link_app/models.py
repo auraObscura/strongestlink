@@ -61,7 +61,6 @@ class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
-    # attendees = models.CharField(max_length=256, blank=True)
     attendees =  models.ManyToManyField(UserProfile, blank=True)
 
 

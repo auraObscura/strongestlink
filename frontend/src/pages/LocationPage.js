@@ -13,7 +13,7 @@ function LocationPage(props) {
   const locationID = useParams()
   const [profiles, setProfiles] = useState([])
   const [attend, setAttend] = useState(false)
-  
+
   const getData = async () => {
     const data = await StrongestLinkApi.getLocationByID(locationID['locationID'])
     setGymName(data.name)
@@ -57,7 +57,6 @@ function LocationPage(props) {
     const newData = {'attendees' : newattendees}
     StrongestLinkApi.addAttendee(locationID['locationID'], newData)
   }
-
 
 
   return (
