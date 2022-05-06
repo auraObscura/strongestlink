@@ -22,6 +22,7 @@ function MyPostsPage(props) {
 
   useEffect(() => {
     console.log("USER in my posts: ", props.user)
+    console.log("MY USER: ", myUser)
     loadMyPosts()
     loadMyProfile()
     loadMyUser()
@@ -47,9 +48,9 @@ function MyPostsPage(props) {
     const response = await StrongestLinkApi.getUserProfileByID(props.user.pk)
 
     if (response) {
-      console.log("profile response: ", response)
+      // console.log("profile response: ", response)
       setUserProfile(response)
-      console.log("profile dataaa: ", userProfile)
+      // console.log("profile dataaa: ", userProfile)
     }
   }
 
@@ -157,14 +158,14 @@ function MyPostsPage(props) {
   return (
     <section className='my-profile-container'>
       <div className='profile-container'>
-        <Profile setImageSelected={setImageSelected} userProfile={userProfile} />
+      <Profile setImageSelected={setImageSelected} userProfile={userProfile} />
 
-        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+      <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
 
-        {wantToEdit && <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
-        {friends && <Friends friends={friends} />}
+      {wantToEdit && <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
+      {friends && <Friends friends={friends} />}
       {friendRequests && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
-      </div>
+    </div>
 
 
 
