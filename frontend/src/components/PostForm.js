@@ -1,17 +1,16 @@
 function PostForm (props){
 
   return (
-    <form onSubmit={props.handleSubmitPost}>
+    <form className="posts-form" onSubmit={props.handleSubmitPost}>
+      <div className="input-item-container">
+      </div>
       <label>
         Image:
-        <input type="file" name="image" onChange={(event) => 
-          props.setImageSelected(event.target.files[0])}/>
       </label>
-      <label>
-        Caption:
-        <input type="text" name="caption"/>
-      </label>
-      <input type="submit" value="Submit" />
+      <input className="input-img" type="file" name="image" onChange={(event) => 
+        props.setImageSelected(event.target.files[0])}/>
+      <input className="input-img" type="text" name="caption" placeholder="Enter caption"/>
+      <input type="submit" value="Submit" className="btn" />
     </form>
   )
 

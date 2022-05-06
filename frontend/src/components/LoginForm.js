@@ -16,15 +16,23 @@ const LoginForm = (props) => {
       sessionStorage.setItem("access_token", data.access_token);
       sessionStorage.setItem("refresh_token", data.refresh_token);
       sessionStorage.setItem("user", JSON.stringify(data.user));
+      const foundUser = JSON.parse(sessionStorage.getItem("user"));
+      if (foundUser) {
+        console.log("founduser username: ", foundUser.username)
+        const username = foundUser.username
+        props.setUser(foundUser)
+      }
       nav("/");
     }
   }
 
   return (
     <form onSubmit={handleSubmit} method="POST">
-      <input id="username" name="username" type="text" placeholder="Username" />
-      <input id="password" name="password" type="password" placeholder="Password" />
-      <button type="submit">Login</button>
+      <div className="input-container">
+        <input id="username" name="username" type="text" placeholder="Username" />
+        <input id="password" name="password" type="password" placeholder="Password" />
+      </div>
+      <button className="btn" type="submit">Login</button>
     </form>
   )
 }

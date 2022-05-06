@@ -1,0 +1,10 @@
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--neutral--dark);
+  color: var(--primary--light);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: .8rem;
+}

@@ -1,7 +1,23 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import StrongestLinkApi from "../api/StrongestLinkApi";
+import { useEffect, useState } from "react";
+import SearchBar from "../components/SearchBar";
 
 const LandingPage = (props) => {
+
+  const [profiles, setProfiles] = useState("")
+
+  useEffect(() => {
+    loadAllUserProfiles()
+  }, [])
+
+  const loadAllUserProfiles = async () => {
+    const response = await StrongestLinkApi.getAllUserProfiles()
+    if(response){
+      setProfiles(response)
+    }
+  }
+  
   const nav = useNavigate();
   const handleRegister = () => {
     nav("register")
@@ -16,15 +32,14 @@ const LandingPage = (props) => {
   }
 
   return (
-    <div>
-      <h1> Welcome to Strongest Link</h1>
-      <hr />
-    { props.isLoggedIn && <p>Excellent, welcome to the club{props.user ? `, ${props.user}!` : "!"}</p>}
-    <p>This place is the best.  But you can't come in unless you have an account</p>
-    { props.isLoggedIn || <button onClick={handleRegister}>Register Account</button>}
-    { props.isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <button onClick={handleLogin}>Login</button>}
+    <section>
+    { props.isLoggedIn && <p>Excellent, welcome to the club{props.user ? `, ${props.user.username}!` : "!"}</p>}
+    {/* <h2>This place is the best!  But you can't come in unless you have an account</h2> */}
+    { props.isLoggedIn || <button className="btn secondary" onClick={handleRegister}>Register Account</button>}
+    { props.isLoggedIn ? <button className="btn" onClick={handleLogout}>Logout</button> : <button className="btn" onClick={handleLogin}>Login</button>}
+    {(props.isLoggedIn && profiles) && <SearchBar profiles = {profiles}/>}
     <Outlet />
-  </div>
+  </section>
   )
   
   

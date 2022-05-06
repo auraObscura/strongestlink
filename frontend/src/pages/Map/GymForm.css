@@ -1,5 +1,91 @@
 .bg {
-  background-color: gray;
+  background-color: rgb(251, 251, 251);
+  font-size: 1rem;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
+}
+.button:hover{
+  color: grey;
+  background-color: white;
+}
+.inputField{
+  background-color: #4d6059;
+  line-height: 1.5rem;
+}
+
+.image-gym{
+  max-width: 2rem;
+}
+
+.info-btn {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.info-data {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  align-items: center;
+}
+
+
+.info-data button {
+  font-size: 1rem;
+  background-color: #4d6059;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* .gymLink {
+
+} */
+
+.gm-style-iw {
+  height: 100px;
+  width: 300px;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.top-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-header {
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.gm-style-iw-d {
+  max-width: 750px;
+  max-height: 750px;
+}
+
+.gm-style .gm-style-iw-c {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 12rem;
+  transform: translate3d(-50%,-100%,0);
+  background-color: white;
+  border-radius: 8px;
+  padding: 6px;
+  max-width: 4rem;
+  box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);
+}
+
+.gm-style .gm-style-iw-d {
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: white;
 }

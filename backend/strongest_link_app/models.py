@@ -20,24 +20,26 @@ class Comments(models.Model):
 
 class UserProfile(models.Model):
     class Gender(models.TextChoices):
-        unspecified = ""
+        unspecified = "Unspecified"
         male = "Male"
         female = "Female"
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     friends = models.ManyToManyField("self", blank=True)
-    profile_img = models.URLField()
-    weight = models.FloatField()
+    profile_img = models.URLField(blank=True, null=True, default="https://files.slack.com/files-pri/T0EGY7J3X-F03EEAXU9EE/sl-user.png")
+    weight = models.FloatField(blank=True, null=True)
     about_me = models.TextField(null=True, blank=True)
-    gender = models.CharField(max_length=10, choices = Gender.choices)
+    gender = models.CharField(max_length=15, choices = Gender.choices, null=True, blank=True)
 
 
 class FriendRequest(models.Model):
+    class Meta:
+        unique_together = ("sender" , "receiver")
     sender = models.ForeignKey(
-        UserProfile, on_delete=models.CASCADE, related_name="requests_sent", 
+        User, on_delete=models.CASCADE, related_name="requests_sent"
     )
     receiver = models.ForeignKey(
-        UserProfile, on_delete=models.CASCADE, related_name="requests_received"
+        User, on_delete=models.CASCADE, related_name="requests_received"
     )
     accepted = models.BooleanField(default=False)
 
@@ -59,6 +61,8 @@ class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     date = models.DateTimeField(auto_now_add=True, blank=True)
+    attendees =  models.ManyToManyField(UserProfile, blank=True)
+
 
 class Weightlifting(models.Model):
     class Type(models.TextChoices):

@@ -10,10 +10,11 @@
   list-style-type: none;
   padding-left: 0;
   text-transform: uppercase;
+  padding-bottom: 20px;
 }
 
 .navbar-link {
-  color: #ee4163;
+  color: var(--primary--light);
   text-decoration: none;
   font-weight: 700;
   padding: .2rem;
@@ -22,12 +23,13 @@
 
 .navbar-link:hover,
 .navbar-link:active {
-  color: #fff;
+  color: var(--primary--bright);
 }
 
 .navbar-list-item {
   display: flex;
   flex-flow: row wrap;
+  font-size: 1.2rem;
 }
 
 .loggedin-nav-container {

@@ -17,6 +17,11 @@ const RegisterForm = () => {
       sessionStorage.setItem("access_token", data.access_token);
       sessionStorage.setItem("refresh_token", data.refresh_token);
       sessionStorage.setItem("user", JSON.stringify(data.user));
+      const userProfileData = {
+        user : data.user.pk
+      }
+      const userProfileResponse = await StrongestLinkApi.createUserProfile(userProfileData)
+      console.log(userProfileResponse)
       nav("/login");
     }
   }
@@ -26,7 +31,7 @@ const RegisterForm = () => {
       <input id="username" name="username" type="text" placeholder="Username" required />
       <input id="password1" name="password" type="password" placeholder="Password" required minLength="8"/>
       <input id="password2" name="password" type="password" placeholder="Password (Again)" required minLength="8"/>
-      <button type="submit">Register</button>
+      <button className="btn" type="submit">Register</button>
     </form>
   )
 }

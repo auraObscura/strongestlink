@@ -2,10 +2,10 @@ import React from 'react'
 
 function GymPage() {
   return (
-    <div>
+    <section>
       Gym members component
       Gym leaderboard component
-    </div>
+    </section>
   )
 }
 
