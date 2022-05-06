@@ -15,6 +15,8 @@ function Footer() {
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
       Andrew Simpson
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
+      Ivan Trejo
+      <FontAwesomeIcon className="chain-icon" icon={faChain} />
       Katarzyna Wegrzynowicz</footer>
   )
 }
