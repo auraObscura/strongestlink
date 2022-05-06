@@ -160,14 +160,17 @@ function UserProfilePage (props){
 
   return (
     <section>
-      {userProfile && <Profile userProfile={userProfile}/>}
+      <div className='profile-container'>
+        {userProfile && <Profile userProfile={userProfile}/>}
 
-      <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
 
-      {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
-      {friends && <Friends friends={friends} />}
-      {(friendRequests && props.user.username == user.username) && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
-      {renderAddFriendButton()}
+        {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
+        {friends && <Friends friends={friends} />}
+        {(friendRequests && props.user.username == user.username) && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
+        {renderAddFriendButton()}
+      </div>
+
     </section>
   )
 }
