@@ -62,6 +62,7 @@ class CommentsViewSet(viewsets.ModelViewSet):
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
+    
 
 class WeightliftingViewSet(viewsets.ModelViewSet):
     queryset = Weightlifting.objects.all()

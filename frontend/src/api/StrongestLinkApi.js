@@ -110,6 +110,22 @@ StrongestLinkApi.deletePin = async (locationId) => {
 }
 
 
+//Location API requests
+StrongestLinkApi.getLocationByID = async (locationID) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/locations/${locationID}`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+StrongestLinkApi.addAttendee = async (locationID, newAttendee) => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.patch(`${BASE_URL}/locations/${locationID}/`, newAttendee, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
+
 
 //methods for User Profile
 StrongestLinkApi.getUserProfileByID = async (userProfileID) => {

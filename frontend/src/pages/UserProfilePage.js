@@ -128,7 +128,7 @@ function UserProfilePage (props){
   }
 
   const renderAddFriendButton = () => {
-    if(userProfile){
+    if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
        return <button onClick = {handleAddFriend}>Add Friend</button>
       }

@@ -21,13 +21,14 @@ import usePlacesAutocomplete, {
 
 import GymForm from "./GymForm";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import MapStyles from "./MapStyles";
 
 import GymImage from "./GymImage";
 
 import "./GymForm.css";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = "AIzaSyCNzw2Ysw63-Ms5CsqT1EpxRRTvFrHKiEw";
 
@@ -89,7 +90,10 @@ function Map(props) {
     setGymarkers(gymMaterialMarker);
   };
 
+  const icon = "./scg.svg"
+
   return (
+    <ChakraProvider>
     <div style={{ width: "95%", height: "500px" }}>
       <Box position="absolute" left={0} top={40} h="80%" w="100%">
         {/* Google Map Box */}
@@ -118,11 +122,10 @@ function Map(props) {
           onLoad={(map) => setMap(map)}
         >
           {/* ////////////////////// (Gym Pin Locations) ////////////////////////// */}
-
           {gymmarkers.map((marker) => (
             <Marker
               icon={{
-                url: "./scg.svg",
+                url: icon,
                 scaledSize: new window.google.maps.Size(40, 40),
                 origin: new window.google.maps.Point(0, 0),
               }}
@@ -147,19 +150,11 @@ function Map(props) {
                 <GymImage />
                 {/* <p>{selectedGym.type}</p> */}
                 <div className="button-group">
-                  {console.log(selectedGym)}
+                  {/* {console.log( 'this is the gym', selectedGym.id)} */}
                   <Button className="info-btn">
-                    <NavLink className="gymLink" to={"location"}>
+                    <NavLink className="gymLink" to={`location/${selectedGym.id}`}>
                       Link to gym page
                     </NavLink>
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      StrongestLinkApi.deletePin(selectedGym.id);
-                    }}
-                    className="info-btn"
-                  >
-                    Delete
                   </Button>
                 </div>
               </div>
@@ -233,6 +228,7 @@ function Map(props) {
         </ButtonGroup>
       </Box>
     </div>
+    </ChakraProvider>
   );
 }
 
