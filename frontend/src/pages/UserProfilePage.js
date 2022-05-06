@@ -36,6 +36,7 @@ function UserProfilePage (props){
 
   useEffect(() => {
     loadMyUser()
+    console.log("MY USER: ", myUser)
   }, [user])
 
   const loadMyUser = async () => {
@@ -126,12 +127,12 @@ function UserProfilePage (props){
     loadUser()
   }
 
-  const renderAddFriendButton =  () => {
+  const renderAddFriendButton = () => {
     if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
        return <button onClick = {handleAddFriend}>Add Friend</button>
       }
-      else if(props.user.username !== user.username && userProfile.friends.includes(myUser.profile)){
+      else if(props.user.username !== user.username &&userProfile.friends.includes(myUser.profile)){
         return <button onClick = {handleRemoveFriend}>Remove Friend</button>
       }
     }
@@ -158,14 +159,19 @@ function UserProfilePage (props){
   }
 
   return (
-    <div>
-      {userProfile && <Profile userProfile={userProfile}/>}
-      {props.user.username == user.username && <button onClick = {() => setWantToEdit(!wantToEdit)}>Edit Profile</button>}
-      {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
-      {friends && <Friends friends={friends} />}
-      {(friendRequests && props.user.username == user.username) && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
-      {renderAddFriendButton()}
-    </div>
+    <section>
+      <div className='profile-container'>
+        {userProfile && <Profile userProfile={userProfile}/>}
+
+        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+
+        {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
+        {friends && <Friends friends={friends} />}
+        {(friendRequests && props.user.username == user.username) && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
+        {renderAddFriendButton()}
+      </div>
+
+    </section>
   )
 }
 

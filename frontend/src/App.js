@@ -13,6 +13,7 @@ import Leaderboard from "./pages/Leaderboard/LeaderboardPage";
 import MyPostsPage from "./pages/MyPostsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
+import Footer from "./components/Footer";
 
 
 
@@ -83,6 +84,7 @@ function App() {
         <Route exact path="/leaderboard" element={<Leaderboard />} />
         <Route exact path="/workouts" element={<WorkoutPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
