@@ -126,12 +126,12 @@ function UserProfilePage (props){
     loadUser()
   }
 
-  const renderAddFriendButton = () => {
-    if(userProfile){
+  const renderAddFriendButton =  () => {
+    if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
        return <button onClick = {handleAddFriend}>Add Friend</button>
       }
-      else if(props.user.username !== user.username &&userProfile.friends.includes(myUser.profile)){
+      else if(props.user.username !== user.username && userProfile.friends.includes(myUser.profile)){
         return <button onClick = {handleRemoveFriend}>Remove Friend</button>
       }
     }
