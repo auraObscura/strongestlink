@@ -77,6 +77,17 @@ textarea {
   transform: translateY(0);
 }
 
+.secondary {
+  background-color: var(--neutral--light);
+  color: #f0f0f1;
+}
+
+.secondary:hover,
+.secondary:active {
+  background-color: var(--neutral--gray);
+  color: #f0f0f1;
+}
+
 form,
 .input-container {
   display: flex;
@@ -98,11 +109,13 @@ select {
 
 .edit-form {
   background-color: var(--neutral--gray);
-  margin : 3rem 3rem;
+  margin : 3rem 1rem;
   padding: 1rem;
   margin-bottom: 0;
   color: white;
   border-radius: 50px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  margin-bottom: 30px;
 }
 
 .edit-form input, 
@@ -123,7 +136,7 @@ textarea {
 
 .posts-form,
 .comment-form {
-  width: 100%;
+  width: 80%;
 }
 
 .input-img {
@@ -149,7 +162,6 @@ textarea {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -223,17 +235,26 @@ textarea {
   align-items: center;
 }
 
-.profile-card {
+.profile-container {
   width: 90%;
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
   background-color: var(--neutral--dark);
   border-radius: 50px;
-  margin-top: 70px;
+  margin: 70px 0 50px 0;
   overflow: hidden;
   padding-bottom: 30px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  width: 90%;
 }
 
 .profile-header {
@@ -254,8 +275,10 @@ textarea {
 
 .profile-avatar {
   width: 150px;
-  height: auto;
-  border: 1px solid var(--neutral--dark);
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid var(--neutral--dark);
+  background-color: var(--neutral--dark);
   border-radius: 100%;
   background-color: white;
   margin-top: 10px;
@@ -393,9 +416,12 @@ h1 {
     align-items: flex-start;
   }
 
-  .profile-card {
-    width: 35%;
+  .profile-container {
+    width: 30%; 
   }
+  /* .profile-card {
+    width: 35%;
+  } */
 
   .my-posts-container {
     width: 50%;

@@ -14,13 +14,14 @@ import MyPostsPage from "./pages/MyPostsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
 import Footer from "./components/Footer";
-
 import { ChakraProvider, theme } from "@chakra-ui/react";
+import {extendTheme} from "@chakra-ui/react"
 
 function App() {
   // probably better to set an auth context which I'll probably do, but just to get some conditional rendering on the minimal demo UI I have up to prove working auth decided to go with a state value
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+  
 
   useEffect(() => {
     const foundUser = JSON.parse(sessionStorage.getItem("user"));
@@ -76,7 +77,7 @@ function App() {
           }
         />
         <Route exact path="map/location" element={<LocationPage />} />
-        <Route exact path="/user/:userID" element={<UserProfilePage />} />
+        <Route exact path="/user/:userID" element={<UserProfilePage user={user} />} />
         <Route exact path="/leaderboard" element={<Leaderboard />} />
         <Route exact path="/workouts" element={<WorkoutPage />} />
       </Routes>

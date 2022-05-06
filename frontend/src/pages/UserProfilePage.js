@@ -5,6 +5,7 @@ import Profile from "../components/Profile"
 import Friends from "../components/Friends"
 import FriendRequests from "../components/FriendRequests"
 import EditProfileForm from "../components/EditProfileForm"
+import thirdPartyAPI from "../api/ThirdPartyApi"
 
 function UserProfilePage (props){
   
@@ -15,6 +16,7 @@ function UserProfilePage (props){
   const [friends, setFriends] = useState("")
   const [friendRequests, setFriendRequests] = useState("")
   const [wantToEdit, setWantToEdit] = useState(false)
+  const [imageSelected, setImageSelected] = useState("")
 
   useEffect(() => {
     loadUserProfile()
@@ -34,6 +36,7 @@ function UserProfilePage (props){
 
   useEffect(() => {
     loadMyUser()
+    console.log("MY USER: ", myUser)
   }, [user])
 
   const loadMyUser = async () => {
@@ -97,7 +100,6 @@ function UserProfilePage (props){
     else{
       alert("Error on Request/Already Sent Friend Request")
     }
-   
     loadFriendRequests()
   }
 
@@ -136,15 +138,37 @@ function UserProfilePage (props){
     }
   }
 
+  const handleEditProfile = async (event) => {
+    event.preventDefault()
+    const formData  = new FormData()
+    formData.append("file", imageSelected)
+    formData.append("upload_preset","sfsjb33d" )
+    const uploadResponse = await thirdPartyAPI.uploadPhoto(formData)
+    console.log(uploadResponse)
+    if(uploadResponse){
+      const userProfileData = {
+        "about_me" : event.target.elements["aboutMe"].value,
+        "profile_img" : uploadResponse.url,
+        "weight" : event.target.elements["weight"].value,
+        "gender" : event.target.elements["gender"].value,
+      }
+      const response = await StrongestLinkApi.editProfile(myUser.profile, userProfileData)
+      loadUserProfile()
+      setWantToEdit(false)
+    }  
+  }
+
   return (
-    <div>
+    <section>
       {userProfile && <Profile userProfile={userProfile}/>}
-      <button onClick = {() => setWantToEdit(!wantToEdit)}>Edit Form</button>
-      {wantToEdit && <EditProfileForm/>}
-      {friends && <Friends friends={friends}/>}
+
+      <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+
+      {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
+      {friends && <Friends friends={friends} />}
       {(friendRequests && props.user.username == user.username) && <FriendRequests friendRequests={friendRequests} handleRejectRequest = {handleRejectRequest} handleAcceptRequest = {handleAcceptRequest}/>}
       {renderAddFriendButton()}
-    </div>
+    </section>
   )
 }
 
