@@ -195,6 +195,13 @@ StrongestLinkApi.editProfile = async (userProfileID, userProfileData) => {
   );
 };
 
+StrongestLinkApi.getAllUserProfiles = async () => {
+  return await apiHelpers.tryCatchFetch(
+    () => axios.get(`${BASE_URL}/profiles/`, { headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+    }}))
+}
+
 //methods for Friend Requests
 StrongestLinkApi.createFriendRequest = async (friendRequestData) => {
   return await apiHelpers.tryCatchFetch(() =>
