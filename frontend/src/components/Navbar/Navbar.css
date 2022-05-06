@@ -29,6 +29,7 @@
 .navbar-list-item {
   display: flex;
   flex-flow: row wrap;
+  font-size: 1.2rem;
 }
 
 .loggedin-nav-container {

@@ -4,6 +4,7 @@ import PostForm from "../components/PostForm"
 import StrongestLinkApi from "../api/StrongestLinkApi"
 import anon from '../assets/sl-user.png'
 import thirdPartyAPI from '../api/ThirdPartyApi'
+import EditProfileForm from '../components/EditProfileForm'
 
 function MyPostsPage(props) {
 
@@ -82,18 +83,19 @@ function MyPostsPage(props) {
             <p className='profile-text-title'>About Me</p>
             {profileData.about_me 
               ? <p className="profile-text-content">{profileData.about_me}</p>
-              : <p className="profile-text-content">Edit your profile to add information</p>
+              : <p className="profile-text-content">Add information</p>
             }
           </div>
           <div className='profile-text-container'>
             <p className="profile-text-title">Weight</p>
             {profileData.weight 
               ? <p className="profile-text-content">{profileData.weight} lbs</p>
-              : <p className="profile-text-content">Edit your profile to add information</p>
+              : <p className="profile-text-content">Add information</p>
             }
           </div>
         </div>
-        <button className='btn'>Edit Profile</button>
+        {/* <button className='btn'>Edit Profile</button> */}
+        <EditProfileForm setImageSelected={setImageSelected} />
       </div>
 
       <div className='my-posts-container'>

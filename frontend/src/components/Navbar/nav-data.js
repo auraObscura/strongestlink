@@ -10,12 +10,12 @@ export const navData = [
     loggedin: false,
   },
   {
-    name: "My Profile",
+    name: "Profile",
     url: "my-posts",
     loggedin: true,
   },
   {
-    name: "All Posts",
+    name: "Posts",
     url: "posts",
     loggedin: true,
   },
