@@ -26,7 +26,7 @@ class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     friends = models.ManyToManyField("self", blank=True)
-    profile_img = models.URLField(blank=True, null=True)
+    profile_img = models.URLField(blank=True, null=True, default="https://res.cloudinary.com/strongest-link/image/upload/v1651852463/lgo5em5rwqeuiduqza71.png")
     weight = models.FloatField(blank=True, null=True)
     about_me = models.TextField(null=True, blank=True)
     gender = models.CharField(max_length=15, choices = Gender.choices, null=True, blank=True)

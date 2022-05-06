@@ -3,7 +3,6 @@ function PostForm (props){
   return (
     <form className="posts-form" onSubmit={props.handleSubmitPost}>
       <div className="input-item-container">
-        
       </div>
       <label>
         Image:
