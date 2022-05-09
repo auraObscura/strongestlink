@@ -10,8 +10,8 @@ export const navData = [
     loggedin: false,
   },
   {
-    name: "My Posts",
-    url: "my-posts",
+    name: "Profile",
+    url: "my-profile",
     loggedin: true,
   },
   {
