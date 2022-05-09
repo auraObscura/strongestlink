@@ -13,7 +13,6 @@ function PostForm (props){
       <input type="submit" value="Submit" className="btn" />
     </form>
   )
-
 }
 
 export default PostForm
