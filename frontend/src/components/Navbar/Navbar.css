@@ -34,6 +34,7 @@ ul {
 .navbar-link:hover,
 .navbar-link:active {
   color: var(--active);
+  text-decoration: underline;
 }
 
 .navbar-list-item {
