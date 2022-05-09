@@ -13,6 +13,7 @@ function UserProfilePage (props){
   const [user, setUser] = useState("")
   const [userProfile, setUserProfile] = useState("")
   const [myUser, setMyUser] = useState("")
+  const [myUserProfile, setMyUserProfile] = useState("")
   const [friends, setFriends] = useState("")
   const [friendRequests, setFriendRequests] = useState("")
   const [wantToEdit, setWantToEdit] = useState(false)
@@ -36,13 +37,16 @@ function UserProfilePage (props){
 
   useEffect(() => {
     loadMyUser()
-    console.log("MY USER: ", myUser)
   }, [user])
+
+  useEffect(() => {
+    loadMyUserProfile()
+  }, [myUser])
 
   const loadMyUser = async () => {
     if(props.user){
       const response = await StrongestLinkApi.getUserByID(props.user.pk)
-      console.log(response)
+      console.log("MY USER: ", response)
       setMyUser(response)
     }
   }
@@ -53,6 +57,14 @@ function UserProfilePage (props){
       const response = await StrongestLinkApi.getUserProfileByID(user.profile)
       console.log(response)
       setUserProfile(response)
+    }
+  }
+
+  const loadMyUserProfile = async () => {
+    if(myUser){
+      const response = await StrongestLinkApi.getUserProfileByID(myUser.profile)
+      console.log("My USER PROFILE" , response)
+      setMyUserProfile(response)
     }
   }
 
@@ -105,9 +117,12 @@ function UserProfilePage (props){
   }
 
   const handleRemoveFriend = async () => {
-    const index = userProfile.friends.indexOf(myUser.profile)
-    const tempUserProfileFriends = userProfile.friends
+    const index = myUserProfile.friends.indexOf(user.profile)
+    console.log("index -----", index)
+    const tempUserProfileFriends = myUserProfile.friends
+    console.log("tempUserProfileFriends -----", tempUserProfileFriends)
     tempUserProfileFriends.splice(index,1)
+    console.log("tempUserProfileFriends -----", tempUserProfileFriends)
     const userProfileData = {
       friends : tempUserProfileFriends
     }

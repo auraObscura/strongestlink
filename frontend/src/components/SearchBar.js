@@ -26,7 +26,7 @@ function SearchBar(props) {
   return (
     <div className="search-container">
       <h3>Search User by Username:</h3>
-      <form className="posts-form">
+      <form className="posts-form" onSubmit = {(event) => event.preventDefault}>
         <div className="input-item-container">
           <input type="text" id="username" onChange = {handleSubmitUsername}placeholder="Enter Username"/>
         </div>

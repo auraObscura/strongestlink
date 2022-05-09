@@ -69,8 +69,8 @@ class Weightlifting(models.Model):
         squat = "Squat"
         deadlift = "Deadlift"
 
-    weight = models.DecimalField(max_digits=5, decimal_places=2)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="lifts")
+    weight = models.DecimalField(max_digits=6, decimal_places=2)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="lifts", default="")
     date = models.DateTimeField(auto_now_add=True, blank=True)
     type = models.CharField(max_length=12, choices = Type.choices)
 
@@ -80,7 +80,7 @@ class Cardio(models.Model):
         bike = "Bike"
 
     miles = models.DecimalField(max_digits=5, decimal_places=2)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cardio")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="cardio", default="")
     date = models.DateTimeField(auto_now_add=True, blank=True)
     type = models.CharField(max_length=10, choices = Type.choices)
     
