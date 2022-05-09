@@ -13,14 +13,14 @@ import Leaderboard from "./pages/Leaderboard/LeaderboardPage";
 import MyPostsPage from "./pages/MyPostsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
-import GymPage from "./pages/GymPage"
+import GymPage from "./pages/GymPage";
 import Footer from "./components/Footer";
 
 function App() {
   // probably better to set an auth context which I'll probably do, but just to get some conditional rendering on the minimal demo UI I have up to prove working auth decided to go with a state value
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     const foundUser = JSON.parse(sessionStorage.getItem("user"));
@@ -69,17 +69,11 @@ function App() {
         <Route exact path="/posts" element={<AllPostsPage user={user} />} />
         <Route exact path="/posts/:postID" element={<PostPage user={user} />} />
         <Route exact path="/map" element={<Map user={user} />} />
+        <Route exact path="/map" element={<Map user={user} />} />
         <Route
           exact
-<<<<<<< HEAD
-          path="/map"
-          element={
-              <Map user={user} />
-          }
-=======
           path="map/location/:locationID"
           element={<LocationPage user={user} />}
->>>>>>> 73bc8c467ce89be38398a0420eacc20cb5d48b65
         />
         <Route
           exact
