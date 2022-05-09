@@ -63,7 +63,7 @@ function App() {
             }
           />
         </Route>
-        <Route exact path="/my-posts" element={<MyPostsPage user={user} />} />
+        <Route exact path="/my-profile" element={<MyPostsPage user={user} />} />
         <Route exact path="/posts" element={<AllPostsPage user={user} />} />
         <Route exact path="/posts/:postID" element={<PostPage user={user} />} />
         <Route

@@ -7,10 +7,12 @@ function FriendRequests (props) {
         if(!props.friendRequests[i].accepted){
           elements.push(
           <div key={`request#${props.friendRequests[i].id}`}>
-             <p>{`You have a request from `}<a href={`#/user/${props.friendRequests[i].sender.id}`}>{props.friendRequests[i].sender.username}</a>
-              <button onClick ={() => props.handleAcceptRequest(props.friendRequests[i].id)}>Accept</button>
-              <button onClick ={() => props.handleRejectRequest(props.friendRequests[i].id)}>Reject</button>
-             </p>
+             <div>{`You have a request from `}<a href={`#/user/${props.friendRequests[i].sender.id}`}>{props.friendRequests[i].sender.username}</a>
+              <div className="btn-container">
+                <button className="btn" onClick ={() => props.handleAcceptRequest(props.friendRequests[i].id)}>Accept</button>
+                <button className="btn secondary" onClick ={() => props.handleRejectRequest(props.friendRequests[i].id)}>Reject</button>
+              </div>
+             </div>
           </div>
           )
         }
@@ -21,7 +23,7 @@ function FriendRequests (props) {
 
 
   return (
-    <div>
+    <div className="search-results">
        <h5>Friend Requests:</h5>
        {renderFriendRequests()}
     </div>
