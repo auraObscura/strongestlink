@@ -25,7 +25,7 @@ export const navData = [
     loggedin: true,
   },
   {
-    name: "My Gym",
+    name: "Gyms",
     url: "gym",
     loggedin: true,
   },
