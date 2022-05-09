@@ -2,7 +2,7 @@ function Friends (props){
 
   return (
     <div className="search-results">
-       <h5>Friends:</h5>
+       <h5>Friends</h5>
        <div className="friends-container">
       {
       props.friends

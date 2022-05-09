@@ -27,17 +27,11 @@
 }
 
 .logo-img {
-  width: 290px;
-  height: auto;
-  /* max-width: 300px; */
+  min-width: 270px;
+  max-width: 270px;
   height: auto;
   margin-top: .3rem;
 }
-
-/* .logo-sml {
-  width: 100px;
-  height: auto;
-} */
 
 .toggler-btn {
   cursor: pointer;
@@ -59,9 +53,11 @@
   font-size: 25px;
 }
 
+/* breakpoint for galaxy fold */
 @media (max-width: 350px) {
   .logo-img {
-    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
   }
 }
 
@@ -82,9 +78,16 @@
   .logo-img {
     width: 450px;
   }
-  
-
   .toggler-btn {
     display: none;
   }
+}
+
+@media(min-width:1100px) {
+  .logo-img {
+    min-width: 300px;
+    max-width: 300px;
+    height: auto;
+    margin-top: .3rem;
+  }  
 }

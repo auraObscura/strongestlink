@@ -15,12 +15,11 @@ import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
 import Footer from "./components/Footer";
 
-
-
 function App() {
   // probably better to set an auth context which I'll probably do, but just to get some conditional rendering on the minimal demo UI I have up to prove working auth decided to go with a state value
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     const foundUser = JSON.parse(sessionStorage.getItem("user"));
@@ -36,15 +35,17 @@ function App() {
 
   // HashRouter has been elevated to index.js, I find it works better like that if your routing structure gets complicated
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <Header
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
         user={user}
         setUser={setUser}
+        setTheme={setTheme}
       />
       <Routes>
         <Route
+          exact
           path="/"
           element={
             <LandingPage
@@ -54,28 +55,24 @@ function App() {
               setUser={setUser}
             />
           }
-        >
-          <Route path="register" element={<RegisterForm />} />
-          <Route
-            path="login"
-            element={
-              <LoginForm setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-            }
-          />
-        </Route>
+        />
+        <Route exact path="register" element={<RegisterForm />} />
+        <Route
+          exact
+          path="login"
+          element={
+            <LoginForm setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
+          }
+        />
         <Route exact path="/my-profile" element={<MyPostsPage user={user} />} />
         <Route exact path="/posts" element={<AllPostsPage user={user} />} />
         <Route exact path="/posts/:postID" element={<PostPage user={user} />} />
+        <Route exact path="/map" element={<Map user={user} />} />
         <Route
           exact
-          path="/map"
-          element={
-            
-              <Map user={user} />
-          
-          }
+          path="map/location/:locationID"
+          element={<LocationPage user={user} />}
         />
-        <Route exact path="map/location/:locationID" element={<LocationPage user={user} />} />
         <Route
           exact
           path="/user/:userID"

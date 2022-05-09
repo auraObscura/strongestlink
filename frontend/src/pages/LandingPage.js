@@ -7,6 +7,7 @@ const LandingPage = (props) => {
 
   const [profiles, setProfiles] = useState("")
 
+
   useEffect(() => {
     loadAllUserProfiles()
   }, [props.user])
@@ -19,6 +20,7 @@ const LandingPage = (props) => {
   }
   
   const nav = useNavigate();
+
   const handleRegister = () => {
     nav("register")
   }
@@ -33,13 +35,13 @@ const LandingPage = (props) => {
 
   return (
     <section>
-    { props.isLoggedIn && <p>Welcome to the club{props.user ? `, ${props.user.username}!` : "!"}</p>}
+    { props.isLoggedIn && <p>Welcome to the club{props.user ? `, ${props.user.username.charAt(0).toUpperCase()+props.user.username.slice(1,) }!` : "!"}</p>}
     {/* <h2>This place is the best!  But you can't come in unless you have an account</h2> */}
 
-    { props.isLoggedIn || <button className="btn secondary" onClick={handleRegister}>Register Account</button>}
-    { props.isLoggedIn ? <button className="btn" onClick={handleLogout}>Logout</button> : <button className="btn" onClick={handleLogin}>Login</button>}
+    { (!props.isLoggedIn) && <button className="btn secondary" onClick={handleRegister}>Register Account</button>}
+    { (props.isLoggedIn) ? <button className="btn primary" onClick={handleLogout}>Logout</button> : <button className="btn primary" onClick={handleLogin}>Login</button>}
     {(props.isLoggedIn && profiles) && <SearchBar profiles = {profiles}/>}
-    <Outlet />
+    {/* <Outlet /> */}
   </section>
   )
   
