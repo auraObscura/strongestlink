@@ -152,6 +152,18 @@ StrongestLinkApi.getLocationByID = async (locationID) => {
   );
 };
 
+StrongestLinkApi.getLocations = async () => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.get(`${BASE_URL}/locations/`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+  );
+};
+
+
+
 StrongestLinkApi.addAttendee = async (locationID, newAttendee) => {
   return await apiHelpers.tryCatchFetch(() =>
     axios.patch(`${BASE_URL}/locations/${locationID}/`, newAttendee, {

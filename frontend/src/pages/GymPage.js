@@ -1,12 +1,43 @@
 import React from 'react'
+import StrongestLinkApi from "../api/StrongestLinkApi"
+import {useState, useEffect} from 'react'
 
-function GymPage() {
+
+function GymPage(props) {
+  const [gyms, setGyms] = useState([])
+
+  const getLocationData = async () => {
+    const data = await StrongestLinkApi.getLocations()
+    const userGyms = data.filter(data => data.attendees.includes(props.user.pk))
+    setGyms(userGyms)
+  }
+
+  useEffect(() => {
+    getLocationData() 
+  }, [])
+
+  useEffect(() => {
+    rendergmys()
+  }, [gyms])
+
+  const rendergmys= () => {
+    const gymlists = []
+    gyms.forEach(id => {gymlists.push(id)})
+    return gymlists.map((gym) => {return <li >
+      <a className="gymLink" href={`#/map/location/${gym.id}`}>{gym.name}
+        </a>
+    </li>})
+  }
+
   return (
-    <section>
-      Gym members component
-      Gym leaderboard component
+    <section className="gym-page">
+      <h1>These are all the gyms you go to</h1>
+      <ol>
+      {rendergmys()}
+      </ol>
     </section>
   )
+
 }
 
 export default GymPage

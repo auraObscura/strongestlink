@@ -7,17 +7,18 @@ function Footer() {
     <footer>
       <span>© 2022</span>
       <FontAwesomeIcon className="dumbbell-icon" icon={faDumbbell} />
-      Dajin Chung
+      <a href="https://www.linkedin.com/in/dajin-chung-506671163/">Dajin Chung</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      Shun Ganas
+      <a href="https://www.linkedin.com/in/shun-ganas/">Shun Ganas</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      Timothy Longmore
+      <a href="https://www.linkedin.com/in/timothy-longmore-bb5647220/">Timothy Longmore</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      Andrew Simpson
+      <a href="https://www.linkedin.com/in/auraobscura/">Andrew Simpson</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      Ivan Trejo
+      <a href="www.linkedin.com/in/ivan-trejo-dev"> Ivan Trejo</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      Katarzyna Wegrzynowicz</footer>
+      <a href="https://www.linkedin.com/in/katarzyna-kw/">Katarzyna Wegrzynowicz</a>
+      </footer>
   )
 }
 

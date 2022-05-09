@@ -8,3 +8,8 @@ footer {
   font-weight: 600;
   font-size: .8rem;
 }
+
+a:hover {
+  color: #72c6a0;
+  text-decoration: none;
+}

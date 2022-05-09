@@ -31,6 +31,11 @@ textarea {
   border-radius: 7px;
 }
 
+.gym-page {
+  position: absolute;
+  top: 5rem;
+}
+
 .btn {
   align-items: center;
   background-color: #ffffff;

@@ -59,13 +59,13 @@ function LocationPage(props) {
   }
 
   return (
-    <div className="top-score">
+    <section className="gym-page">
       These are the Top Althetes for {gymName}
     <ol><span className="top-header">Attendees</span>
       {renderProfiles()}
     </ol>
     { attend ? <div>You attend this gym</div> : <button onClick={addSelfToGym}>You don't go here</button>  }
- </div>
+ </section>
   )
 }
 
