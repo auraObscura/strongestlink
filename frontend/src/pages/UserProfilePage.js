@@ -164,7 +164,7 @@ function UserProfilePage (props){
       <div className='profile-container'>
         {userProfile && <Profile userProfile={userProfile}/>}
 
-        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+        {props.user.username == user.username && <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>}
 
         {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
         {friends && <Friends friends={friends} />}

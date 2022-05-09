@@ -1,4 +1,4 @@
-/* accept these changes */
+/* accept these changes -- commented out easter colors */
 
 .App {
   font-family: "Inter", sans-serif;
@@ -309,7 +309,7 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: orchid;
+  /* background-color: orchid; */
 }
 
 .friends-container {
@@ -318,11 +318,11 @@ textarea {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 .friend-container {
-  background-color: aqua;
+  /* background-color: aqua; */
   padding: .5rem;
 }
 
