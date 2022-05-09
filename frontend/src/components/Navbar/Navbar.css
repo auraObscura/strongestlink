@@ -33,7 +33,7 @@ ul {
 
 .navbar-link:hover,
 .navbar-link:active {
-  color: var(--primary--bright);
+  color: var(--active);
 }
 
 .navbar-list-item {
@@ -54,10 +54,21 @@ ul {
   padding-top: 16px;
 }
 
+.selected {
+  color: var(--primary--bright);
+}
+
+.theme-toggle {
+  background-color: var(--primary--bright);
+  border-radius: 50px;
+  padding: .5rem;
+}
+
+
 @media(min-width:768px) {
 
   .navbar-container {
-    width: 65%;
+    width: 75%;
     padding-right: 1rem;
     flex-grow: 3;
   }
@@ -69,7 +80,15 @@ ul {
   }
 
   .navbar-link {
-    margin-left: 1.5rem;
+    margin-left: .5rem;
   }  
+<<<<<<< HEAD
 }
 
+=======
+
+  .theme-toggle {
+    margin-left: 1rem;
+  }    
+}
+>>>>>>> 73bc8c467ce89be38398a0420eacc20cb5d48b65

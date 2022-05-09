@@ -74,30 +74,29 @@ function Leaderboard() {
   };
 
   return (
-    <div>
+    <section>
       <h1> Strongest Link Top 5</h1>
       <div className="exer-buttons">
-        <button onClick={handleClick} id="Bench">
+        <button className="btn primary" onClick={handleClick} id="Bench">
           Bench
         </button>
-        <button onClick={handleClick} id="Squat">
+        <button className="btn primary" onClick={handleClick} id="Squat">
           Squat
         </button>
-        <button onClick={handleClick} id="Deadlift">
+        <button className="btn primary" onClick={handleClick} id="Deadlift">
           Deadlift
         </button>
-        <button onClick={cardioClick} id="Run">
+        <button className="btn primary" onClick={cardioClick} id="Run">
           Miles
         </button>
-        <button onClick={cardioClick} id="Bike">
+        <button className="btn primary" onClick={cardioClick} id="Bike">
           Bike
         </button>
       </div>
-      <hr />
       <div>{renderLifts()}</div>
       <div>{renderCardio()}</div>
       <Boardprofiles profileuser="Placeholder" />
-    </div>
+    </section>
   );
 }
 

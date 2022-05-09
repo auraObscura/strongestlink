@@ -15,6 +15,22 @@ function PostDetail (props) {
         {props.post.date && 
           <p className="time">{convertTimestamp(props.post.date)}</p>
         }
+        {
+          props.user.username == props.post.user.username 
+          && 
+          <div>
+            <button className="btn" onClick = {() => props.setWantToEditCaption(!props.wantToEditCaption)}>Edit Caption</button> 
+            <button className="btn secondary" onClick = {props.handleDeletePost}>Delete Post</button>
+          </div>
+        }
+        {
+          props.wantToEditCaption
+          &&
+          <form className="posts-form" onSubmit={props.handleEditPost}>
+            <input className="input-img" type="text" name="caption" placeholder="Enter caption" defaultValue={props.post.caption} required/>
+            <input type="submit" value="Submit" className="btn" />
+          </form>
+        }
       </div>
     </div>
   )

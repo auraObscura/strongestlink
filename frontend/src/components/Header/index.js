@@ -44,10 +44,10 @@ function Header(props) {
           </button>
         }
       {!isMobile && 
-        <Navbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn} user={props.user} setUser={props.setUser} handleToggle={handleToggle} />
+        <Navbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn} user={props.user} setUser={props.setUser} handleToggle={handleToggle} setTheme={props.setTheme}/>
       }
       </div>
-      {navbarOpen && isMobile && <Navbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn} user={props.user} setUser={props.setUser} handleToggle={handleToggle} /> }
+      {navbarOpen && isMobile && <Navbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn} user={props.user} setUser={props.setUser} handleToggle={handleToggle} setTheme={props.setTheme}/> }
     </div>
   )
 }

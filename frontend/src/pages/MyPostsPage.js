@@ -56,7 +56,7 @@ function MyPostsPage(props) {
 
 
   const loadUserProfile = async () => {
-    if(user){
+    if(user.profile){
       const response = await StrongestLinkApi.getUserProfileByID(user.profile)
       console.log("response in loadUserProfile", response)
       setUserProfile(response)
@@ -64,9 +64,12 @@ function MyPostsPage(props) {
   }
 
   const loadUser = async () => {
-    const response = await StrongestLinkApi.getUserByID(userID)
-    console.log("response in loadUser: ", response)
-    setUser(response)
+    if(userID){
+      const response = await StrongestLinkApi.getUserByID(userID)
+      console.log("response in loadUser: ", response)
+      setUser(response)
+    }
+   
   }
 
   const loadFriends = async () => {
@@ -136,7 +139,7 @@ function MyPostsPage(props) {
   const renderAddFriendButton = () => {
     if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
-       return <button className="btn" onClick = {handleAddFriend}>Add Friend</button>
+       return <button className="btn primary" onClick = {handleAddFriend}>Add Friend</button>
       }
       else if(props.user.username !== user.username &&userProfile.friends.includes(myUser.profile)){
         return <button className="btn secondary" onClick = {handleRemoveFriend}>Remove Friend</button>
@@ -187,11 +190,28 @@ function MyPostsPage(props) {
         "image" : uploadResponse.url,
         "comments" : []
       }
+      if(event.target.elements["workout"].value == "Bike" || event.target.elements["workout"].value == "Run" ){
+        const cardioData = {
+          "type" : event.target.elements["workout"].value,
+          "miles" : event.target.elements["number"].value,
+        }
+        const cardioResponse = await StrongestLinkApi.postCardio(cardioData)
+      }
+      else if(event.target.elements["workout"].value == "Squat" || event.target.elements["workout"].value == "Deadlift" || event.target.elements["workout"].value == "Bench" ){
+        const liftData = {
+          "type" : event.target.elements["workout"].value,
+          "weight" : event.target.elements["number"].value,
+        }
+        const liftResponse = await StrongestLinkApi.postLift(liftData)
+      }
       const backendResponse = await StrongestLinkApi.postPost(postData)
       console.log(backendResponse)
     }
     loadMyPosts()
     event.target.elements["caption"].value = ""
+    event.target.elements["number"].value = ""
+    event.target.elements["workout"].value = "none"
+    event.target.elements["image"].value = ""
   }
   
 
@@ -200,7 +220,7 @@ function MyPostsPage(props) {
       <div className='profile-container'>
         {userProfile && <Profile userProfile={userProfile}/>}
 
-        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+        <button className="btn primary" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
 
         {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
         {friends && <Friends friends={friends} />}

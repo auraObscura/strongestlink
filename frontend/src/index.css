@@ -6,13 +6,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* css variables */
+}
+
+.dark {
   --neutral--dark: #1f2632;
   --neutral--gray: hsl(217, 19%, 24%);
   --neutral--light: hsl(217, 19%, 38%);
-  --primary--bright: rgb(82, 255, 168);
+  --primary--bright: #7efac8;
   --primary--mid: rgb(47, 140, 94);
   --primary--light: #cee3e9;
   --primary--dark: rgb(0, 52, 26);
   --active: hsl(152, 100%, 97%);
   --radius-val: 10px;
+  --bg-color: hsl(217, 19%, 24%);
+  --base-text: #FFFFFF;
+  --user-link: #7efac8;
+  --edit-profile-bg: #1f2632;
+  --h5-text: #cee3e9;
+  --post-time: hsl(152, 100%, 97%);
+  --toggle-bg: hotpink;
+}
+
+.light {
+  --neutral--dark: #1f2632;
+  --neutral--gray: hsl(217, 19%, 24%);
+  --neutral--light: hsl(217, 19%, 38%);
+  --primary--bright: #7efac8;
+  --primary--mid: rgb(47, 140, 94);
+  --primary--light: #cee3e9;
+  --primary--dark: rgb(0, 52, 26);
+  --active: hsl(152, 100%, 97%);
+  --radius-val: 10px;
+  --bg-color: #cee3e9;
+  --base-text: #000000;
+  --user-link: #1f2632;
+  --edit-profile-bg: hsl(217, 19%, 24%);
+  --h5-text: #1f2632;
+  --post-time: hsl(217, 19%, 38%);
+  --toggle-bg: hotpink;
 }
