@@ -15,7 +15,7 @@ export const navData = [
     loggedin: true,
   },
   {
-    name: "Posts",
+    name: "All Posts",
     url: "posts",
     loggedin: true,
   },

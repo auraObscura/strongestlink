@@ -40,6 +40,7 @@ class FriendRequestViewSet(viewsets.ModelViewSet):
             receiver_profile.friends.add(sender_profile.id)
             receiver_profile.save()
             sender_profile.save()
+            return self.destroy(self)
         return serializer.save()
 
 class PostsViewSet(viewsets.ModelViewSet):
@@ -68,7 +69,15 @@ class WeightliftingViewSet(viewsets.ModelViewSet):
     queryset = Weightlifting.objects.all()
     serializer_class = WeightliftingSerializer
 
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+        return super().perform_create(serializer)
+
 class CardioViewSet(viewsets.ModelViewSet):
     queryset = Cardio.objects.all()
     serializer_class = CardioSerializer
+
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+        return super().perform_create(serializer)
 

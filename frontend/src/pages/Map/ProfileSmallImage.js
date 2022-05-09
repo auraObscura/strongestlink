@@ -1,7 +1,7 @@
-import './GymForm.css'
+import '../../App.css'
 
 function ProfileSmallImage(props) {
-  return ( <img className="image-gym" src={props.image} />);
+  return ( <img className="profile-avatar avatar-result" src={props.image} />);
 }
 
 export default ProfileSmallImage;

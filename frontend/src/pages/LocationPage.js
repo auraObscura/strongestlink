@@ -46,8 +46,8 @@ function LocationPage(props) {
     const dataProfiles = []
     profiles.forEach(id => {dataProfiles.push(id)})
     return dataProfiles.map((profile) => {return <li >
-      <a className="gymLink" href={`#/user/${profile.id}`}><ProfileSmallImage image={profile.profile_img}/>
-        {profile.user.username} </a>
+      <a className="gymLink" href={`#/user/${profile.id}`}>{profile.user.username}<ProfileSmallImage image={profile.profile_img}/>
+        </a>
     </li>})
   }
 
@@ -57,7 +57,6 @@ function LocationPage(props) {
     const newData = {'attendees' : newattendees}
     StrongestLinkApi.addAttendee(locationID['locationID'], newData)
   }
-
 
   return (
     <div className="top-score">

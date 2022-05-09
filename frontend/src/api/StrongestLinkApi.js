@@ -286,4 +286,24 @@ StrongestLinkApi.getCardio = async () => {
 
   return allCardio.data;
 };
+
+StrongestLinkApi.postCardio = async (cardioData) => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.post(`${BASE_URL}/cardio/`, cardioData, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+  );
+};
+
+StrongestLinkApi.postLift = async (liftData) => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.post(`${BASE_URL}/lifts/`, liftData, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+  );
+};
 export default StrongestLinkApi;
