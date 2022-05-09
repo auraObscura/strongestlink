@@ -421,7 +421,7 @@ h1 {
 .chain-icon {
   padding-left: .2rem;
   padding-right: .2rem;
-  color: var(--primary--bright);
+  color: var(--active);
 }
 
 .search-results a {
