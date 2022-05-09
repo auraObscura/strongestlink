@@ -1,4 +1,3 @@
-/* accept these changes */
 
 .App {
   font-family: "Inter", sans-serif;
@@ -7,6 +6,8 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--base-text);
 }
 
 section {
@@ -24,20 +25,20 @@ img {
   max-width: 720px;
 }
 
+
 .btn,
 input,
 select,
 textarea {
   border-radius: 7px;
+  color: var(--neutral--dark);
 }
 
 .btn {
   align-items: center;
-  background-color: #ffffff;
   border: 1px solid var(--neutral--gray);
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  color: var(--neutral--dark);
   cursor: pointer;
   display: inline-flex;
   font-family: 'Inter', sans-serif;
@@ -62,20 +63,29 @@ textarea {
 .btn:hover,
 .btn:focus {
   border-color: var(--neutral--light);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  color: var(--neutral--light);
-}
-
-.btn:hover {
   transform: translateY(-1px);
 }
 
 .btn:active {
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.primary {
+  background-color: #ffffff;
+  color: var(--neutral--dark);
+}
+
+.primary:hover,
+.primary:focus {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: var(--neutral--light);
+}
+
+.primary:active {
+  color: rgba(0, 0, 0, 0.65);
   background-color: #f0f0f1;
   border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  color: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
 }
 
 .secondary {
@@ -109,7 +119,7 @@ select {
 }
 
 .edit-form {
-  background-color: var(--neutral--gray);
+  background-color: var(--edit-profile-bg);
   margin : 3rem 1rem;
   padding: 1rem;
   margin-bottom: 0;
@@ -219,7 +229,7 @@ textarea {
 }
 
 .post-details-container h3 {
-  color: var(--neutral--gray);
+  color: var(--base-text);
 }
 
 .container {
@@ -304,7 +314,6 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: orchid;
 }
 
 .friends-container {
@@ -313,16 +322,14 @@ textarea {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
 }
 
 .friend-container {
-  background-color: aqua;
   padding: .5rem;
 }
 
 a {
-  color: var(--primary--mid);
+  color: var(--user-link);
   text-decoration: none;
   font-weight: 600;
 }
@@ -378,8 +385,12 @@ h1 {
 
 .post-author {
   font-size: 1rem;
-  color: var(--primary--mid);
+  color: var(--user-link);
   padding-right: 0.5rem;
+}
+
+.post-author:hover {
+  text-decoration: underline;
 }
 
 .comment-text {
@@ -390,7 +401,7 @@ h1 {
 
 .time {
   margin-top: 2px;
-  color: var(--neutral--light);
+  color: var(--post-time);
   font-weight: 600;
   font-size: 0.9rem;
   text-align: right;
@@ -406,6 +417,16 @@ h1 {
   padding-left: .2rem;
   padding-right: .2rem;
   color: var(--primary--bright);
+}
+
+.search-results a {
+  padding-top: .3rem;
+}
+
+h5 {
+  color: var(--h5-text);
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
 @media (max-width: 400px) {

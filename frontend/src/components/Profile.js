@@ -32,9 +32,9 @@ function Profile (props){
             }
           </div>
         </div>
-        {/* {!props.wantToEdit && <button className='btn profile' onClick={props.handleEdit}>Edit Profile</button>}
+        {/* {!props.wantToEdit && <button className='btn primary profile' onClick={props.handleEdit}>Edit Profile</button>}
         {props.wantToEdit && <EditProfileForm setImageSelected={props.setImageSelected} /> }
-        {props.wantToEdit && <button className='btn profile' onClick={() => props.setWantToEdit(!props.wantToEdit)}>Cancel Edit</button>} */}
+        {props.wantToEdit && <button className='btn primary profile' onClick={() => props.setWantToEdit(!props.wantToEdit)}>Cancel Edit</button>} */}
 
   
       </div>      

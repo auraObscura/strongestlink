@@ -24,21 +24,21 @@ export const navData = [
     url: "map",
     loggedin: true,
   },
-  // {
-  //   name: "My Gym",
-  //   url: "gym",
-  //   loggedin: true,
-  // },
-  // {
-  //   name: "Workouts",
-  //   url: "workouts",
-  //   loggedin: true,
-  // },
-  // {
-  //   name: "location",
-  //   url: "location",
-  //   loggedin: true,
-  // },
+  {
+    name: "Gyms",
+    url: "gym",
+    loggedin: true,
+  },
+  {
+    name: "Workouts",
+    url: "workouts",
+    loggedin: true,
+  },
+  {
+    name: "location",
+    url: "location",
+    loggedin: true,
+  },
   {
     name: "Leaderboard",
     url: "leaderboard",

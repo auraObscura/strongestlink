@@ -136,7 +136,7 @@ function MyPostsPage(props) {
   const renderAddFriendButton = () => {
     if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
-       return <button className="btn" onClick = {handleAddFriend}>Add Friend</button>
+       return <button className="btn primary" onClick = {handleAddFriend}>Add Friend</button>
       }
       else if(props.user.username !== user.username &&userProfile.friends.includes(myUser.profile)){
         return <button className="btn secondary" onClick = {handleRemoveFriend}>Remove Friend</button>
@@ -200,7 +200,7 @@ function MyPostsPage(props) {
       <div className='profile-container'>
         {userProfile && <Profile userProfile={userProfile}/>}
 
-        <button className="btn" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
+        <button className="btn primary" onClick = {() => setWantToEdit(!wantToEdit)}>{wantToEdit ? "Cancel Edit" : "Edit Profile"} </button>
 
         {(wantToEdit && props.user.username == user.username )&& <EditProfileForm setImageSelected = {setImageSelected} handleEditProfile = {handleEditProfile}/>}
         {friends && <Friends friends={friends} />}
