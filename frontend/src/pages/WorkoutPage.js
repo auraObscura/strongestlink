@@ -60,7 +60,7 @@ function WorkoutPage() {
     <section className="gym-page">
       <h1>Need a quick workout?</h1>
       <form onSubmit={handleSearch}>
-        <label>Search For your workout</label>
+        <label>Search for your workout:</label>
         <select onChange={(event) => setTopdropvalue(event.target.value)} name="topSearch" >
           <option value="bodyPart"> Body Part</option>
           <option value="target"> Target Muscle</option>
@@ -69,7 +69,7 @@ function WorkoutPage() {
         <select name="deepsearch">
           {renderDropdown(deepSearch)}
         </select>
-        <button type="submit"> Search </button>
+        <button className="btn secondary" type="submit"> Search </button>
       </form>
       {responseData.length > 0 ? <MyCard data={responseData[0]} /> : ''}
     </section>

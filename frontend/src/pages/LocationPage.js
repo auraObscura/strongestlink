@@ -60,11 +60,11 @@ function LocationPage(props) {
 
   return (
     <section className="gym-page">
-      These are the Top Althetes for {gymName}
+      <h2>Top Athletes at {gymName}</h2>
     <ol><span className="top-header">Attendees</span>
       {renderProfiles()}
     </ol>
-    { attend ? <div>You attend this gym</div> : <button onClick={addSelfToGym}>You don't go here</button>  }
+    { attend ? <div><h5>You attend this gym</h5></div> : <button className="btn primary" onClick={addSelfToGym}>You don't go here</button>  }
  </section>
   )
 }
