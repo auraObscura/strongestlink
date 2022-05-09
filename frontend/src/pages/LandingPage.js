@@ -9,7 +9,7 @@ const LandingPage = (props) => {
 
   useEffect(() => {
     loadAllUserProfiles()
-  }, [])
+  }, [props.user])
 
   const loadAllUserProfiles = async () => {
     const response = await StrongestLinkApi.getAllUserProfiles()

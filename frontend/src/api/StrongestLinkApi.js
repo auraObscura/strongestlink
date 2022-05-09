@@ -71,6 +71,26 @@ StrongestLinkApi.getPostByID = async (postID) => {
   );
 };
 
+StrongestLinkApi.deletePostByID = async (postID) => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.delete(`${BASE_URL}/posts/${postID}`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+  );
+};
+
+StrongestLinkApi.editPostByID = async (postID , postData) => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.patch(`${BASE_URL}/posts/${postID}/`, postData, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+  );
+};
+
 //methods for Comments
 StrongestLinkApi.getCommentByID = async (commentID) => {
   return await apiHelpers.tryCatchFetch(() =>

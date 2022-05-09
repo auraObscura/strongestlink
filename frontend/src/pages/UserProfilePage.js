@@ -118,11 +118,8 @@ function UserProfilePage (props){
 
   const handleRemoveFriend = async () => {
     const index = myUserProfile.friends.indexOf(user.profile)
-    console.log("index -----", index)
     const tempUserProfileFriends = myUserProfile.friends
-    console.log("tempUserProfileFriends -----", tempUserProfileFriends)
     tempUserProfileFriends.splice(index,1)
-    console.log("tempUserProfileFriends -----", tempUserProfileFriends)
     const userProfileData = {
       friends : tempUserProfileFriends
     }
