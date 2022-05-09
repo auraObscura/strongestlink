@@ -24,7 +24,7 @@ function SearchBar(props) {
 
 
   return (
-    <div>
+    <div className="search-container">
       <h3>Search User by Username:</h3>
       <form className="posts-form">
         <div className="input-item-container">

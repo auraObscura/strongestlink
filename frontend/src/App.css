@@ -1,3 +1,5 @@
+/* accept these changes */
+
 .App {
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -5,7 +7,6 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   min-height: 100vh;
-  /* background-color: var(--neutral--gray); */
 }
 
 section {
@@ -282,6 +283,52 @@ textarea {
   border-radius: 100%;
   background-color: white;
   margin-top: 10px;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-result {
+  width: 50px;
+  height: 50px;
+}
+
+.search-results {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: orchid;
+}
+
+.friends-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+}
+
+.friend-container {
+  background-color: aqua;
+  padding: .5rem;
+}
+
+a {
+  color: var(--primary--mid);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .profile-body {

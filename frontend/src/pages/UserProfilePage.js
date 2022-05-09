@@ -75,6 +75,7 @@ function UserProfilePage (props){
   }
 
   const loadFriendRequests = async () => {
+    console.log("USER IN load fr req: ", user)
     if(user){
       let newFriendRequests = []
       if(user.requests_received){
@@ -130,10 +131,10 @@ function UserProfilePage (props){
   const renderAddFriendButton = () => {
     if(userProfile && myUser){
       if(props.user.username !== user.username &&!userProfile.friends.includes(myUser.profile)){
-       return <button onClick = {handleAddFriend}>Add Friend</button>
+       return <button className="btn" onClick = {handleAddFriend}>Add Friend</button>
       }
       else if(props.user.username !== user.username &&userProfile.friends.includes(myUser.profile)){
-        return <button onClick = {handleRemoveFriend}>Remove Friend</button>
+        return <button className="btn secondary" onClick = {handleRemoveFriend}>Remove Friend</button>
       }
     }
   }

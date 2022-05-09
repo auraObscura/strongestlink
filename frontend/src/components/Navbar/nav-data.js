@@ -11,7 +11,7 @@ export const navData = [
   },
   {
     name: "Profile",
-    url: "my-posts",
+    url: "my-profile",
     loggedin: true,
   },
   {
