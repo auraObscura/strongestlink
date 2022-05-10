@@ -1,7 +1,8 @@
-
+import StrongestLinkApi from '../api/StrongestLinkApi';
 import workoutApi from '../api/workoutAPI';
 import { useState, useEffect } from 'react';
-import MyCard from '../components/Card';
+import MyCard from '../components/Card'
+import { useNavigate } from 'react-router-dom';
 import BodyPng from '../components/BodyPng'
 
 function WorkoutPage() {
@@ -10,6 +11,7 @@ function WorkoutPage() {
   const equipmentoptions = ["assisted", "band", "barbell", "body weight", "bosu ball", "cable", "dumbbell", "elliptical machine", "ez barbell", "hammer", "kettlebell", "leverage machine", "medicine ball", "olympic barbell", "resistance band", "roller", "rope", "skierg machine", "sled machine", "smith machine", "stability ball", "stationary bike", "stepmill machine", "tire", "trap bar", "upper body ergometer", "weighted", "wheel roller"];
 
   const targetoptions = ["abductors", "abs", "biceps", "calves", "cardiovascular system", "delts", "forearms", "glutes", "hamstrings", "lats", "levator scapulae", "pectorals", "quads", "serratus anterior", "spine", "traps", "triceps", "upper back"];
+  const nav = useNavigate()
 
   const [topdropvalue, setTopdropvalue] = useState('bodyPart');
   const [responseData, setResponseData] = useState([]);
@@ -78,9 +80,23 @@ function WorkoutPage() {
       });
     }
     else {
-      return data.map(workout => <MyCard data={workout} key={workout.id} />);
+    return results.map(workout => <MyCard data={workout} handleClickHandler = {handleClickHandler}/>)
+  }
+}
+
+  const handleClickHandler = async (imageUrl , exerciseName) =>{
+    const postData = {
+      "caption" : `Check out this workout: ${exerciseName}`,
+      "image" : imageUrl,
+      "comments" : []
     }
-  };
+    const backendResponse = await StrongestLinkApi.postPost(postData)
+    if(backendResponse){
+      nav(`/posts/${backendResponse.id}`)
+    }
+    console.log(backendResponse)
+    
+  }
 
   const renderButtons = (data) => {
     if (responseData.length > 18) {

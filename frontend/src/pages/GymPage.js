@@ -23,7 +23,7 @@ function GymPage(props) {
   const rendergmys= () => {
     const gymlists = []
     gyms.forEach(id => {gymlists.push(id)})
-    return gymlists.map((gym) => {return <li >
+    return gymlists.map((gym) => {return <li className='body-list-items'>
       <a className="gymLink" href={`#/map/location/${gym.id}`}>{gym.name}
         </a>
     </li>})
@@ -31,7 +31,7 @@ function GymPage(props) {
 
   return (
     <section className="gym-page">
-      <h1>These are all the gyms you go to</h1>
+      <h1>{props.user.username}'s Gyms</h1>
       <ol>
       {rendergmys()}
       </ol>

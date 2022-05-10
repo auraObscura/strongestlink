@@ -7,7 +7,7 @@ header {
   background-color: var(--neutral--dark);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  min-height: 200px;
+  min-height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,4 +64,11 @@ header {
     min-width: auto;
     min-height: 130px;
   }
+}
+
+@media(min-width: 1920) {
+  .landing-container {
+    margin-top: -70px;
+    width: 100%;
+  }  
 }
