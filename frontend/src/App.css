@@ -34,7 +34,6 @@ textarea {
 }
 
 .gym-page {
-  position: absolute;
   top: 5rem;
 }
 
@@ -420,7 +419,7 @@ h1 {
 .chain-icon {
   padding-left: .2rem;
   padding-right: .2rem;
-  color: var(--primary--bright);
+  color: var(--active);
 }
 
 .search-results a {
@@ -617,4 +616,19 @@ h5 {
   display: flex;
   gap: 0.5rem;
   transition: ease-in-out .2s;
+}
+
+/* signup/login error css */
+
+.error-msg {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-icon {
+  padding-right: 5px;
+  color: var(--error-icon);
 }

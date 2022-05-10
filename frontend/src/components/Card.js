@@ -8,7 +8,7 @@ function MyCard(props) {
       <div className="card-body">{props.data.bodyPart.toUpperCase()}</div>
       <div className="card-equip">{props.data.equipment.toUpperCase()}</div>
       <div className="card-target">{props.data.target.toUpperCase()}</div>
-      <button className="card-button">Post It!</button>
+      <button className="btn card-button">Post It!</button>
     </div>
     );
 }
