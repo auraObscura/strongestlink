@@ -685,6 +685,23 @@ ol, ul {
   align-items: center;
 }
 
+.history{
+  text-align: center;
+}
+
+.Chart{
+  height: 50%;
+}
+
+.myChart{
+  display: inline-block;
+  height: 75rem;
+  color: #ffffff;
+}
+
+.dataList{
+  float: left;
+}
 /* Workouts pg CSS */
 /* mobile */
 .search-section {
