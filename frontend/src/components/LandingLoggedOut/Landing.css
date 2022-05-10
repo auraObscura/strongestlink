@@ -1,0 +1,66 @@
+.landing-container {
+  margin-top: -47px;
+  width: 100%;
+}
+
+header {
+  background-color: var(--neutral--dark);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem  4rem;
+}
+
+.landing-heading {
+  font-size: 2rem;
+  text-transform: none;
+}
+
+.landing-cards {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-card {
+  background-color: var(--primary--bright);
+  color: var(--neutral--dark);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 50px;
+  flex: 1 1 auto;
+  min-width: 85%;
+  opacity: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(min-width: 768px) {
+
+  header {
+    padding: 2rem  10rem;
+  }
+
+  .landing-heading {
+    font-size: 3rem;
+  }
+  
+  .landing-cards {
+    flex-flow: row wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .landing-card {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    min-width: auto;
+    min-height: 130px;
+  }
+}

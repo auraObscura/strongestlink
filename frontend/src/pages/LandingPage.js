@@ -2,6 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom"
 import StrongestLinkApi from "../api/StrongestLinkApi";
 import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
+import LandingLoggedOut from "../components/LandingLoggedOut/LandingLoggedOut";
 
 const LandingPage = (props) => {
 
@@ -35,16 +36,19 @@ const LandingPage = (props) => {
 
   return (
     <section>
-    { props.isLoggedIn && <p>Welcome to the club{props.user ? `, ${props.user.username.charAt(0).toUpperCase()+props.user.username.slice(1,) }!` : "!"}</p>}
-    {/* <h2>This place is the best!  But you can't come in unless you have an account</h2> */}
+      { props.isLoggedIn && <p>Welcome to the club{props.user ? `, ${props.user.username.charAt(0).toUpperCase()+props.user.username.slice(1,) }!` : "!"}</p>}
+      {(props.isLoggedIn && profiles) && <SearchBar profiles = {profiles}/>}
+      { props.isLoggedIn && <button className="btn primary" onClick={handleLogout}>Logout</button> }
 
-    { (!props.isLoggedIn) && <button className="btn secondary" onClick={handleRegister}>Register Account</button>}
-    { (props.isLoggedIn) ? <button className="btn primary" onClick={handleLogout}>Logout</button> : <button className="btn primary" onClick={handleLogin}>Login</button>}
-    {(props.isLoggedIn && profiles) && <SearchBar profiles = {profiles}/>}
-    {/* <Outlet /> */}
+
+    {!props.isLoggedIn && <LandingLoggedOut />}
+    {!props.isLoggedIn && <div className="btn-container">
+      <button className="btn secondary" onClick={handleRegister}>Register Account</button>
+      <button className="btn primary" onClick={handleLogin}>Login</button>
+    </div>}
   </section>
   )
-  
+
   
 }
 

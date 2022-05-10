@@ -9,7 +9,11 @@ footer {
   font-size: .8rem;
 }
 
-a:hover {
-  color: #72c6a0;
-  text-decoration: none;
+.footer-link {
+  color: var(--footer-link);
+}
+
+.footer-link:hover {
+  color: var(--footer-link-hover);
+  text-decoration: underline;
 }

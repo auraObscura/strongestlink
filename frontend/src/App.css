@@ -553,3 +553,18 @@ h5 {
   background-color: #1f2632;
   color: #7cf7c6;
 }
+
+/* signup/login error css */
+
+.error-msg {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-icon {
+  padding-right: 5px;
+  color: var(--error-icon);
+}

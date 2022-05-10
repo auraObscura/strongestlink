@@ -7,17 +7,17 @@ function Footer() {
     <footer>
       <span>© 2022</span>
       <FontAwesomeIcon className="dumbbell-icon" icon={faDumbbell} />
-      <a href="https://www.linkedin.com/in/dajin-chung-506671163/">Dajin Chung</a>
+      <a className="footer-link" href="https://www.linkedin.com/in/dajin-chung-506671163/">Dajin Chung</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      <a href="https://www.linkedin.com/in/shun-ganas/">Shun Ganas</a>
+      <a className="footer-link" href="https://www.linkedin.com/in/shun-ganas/">Shun Ganas</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      <a href="https://www.linkedin.com/in/timothy-longmore-bb5647220/">Timothy Longmore</a>
+      <a className="footer-link" href="https://www.linkedin.com/in/timothy-longmore-bb5647220/">Timothy Longmore</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      <a href="https://www.linkedin.com/in/auraobscura/">Andrew Simpson</a>
+      <a className="footer-link" href="https://www.linkedin.com/in/auraobscura/">Andrew Simpson</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      <a href="www.linkedin.com/in/ivan-trejo-dev"> Ivan Trejo</a>
+      <a className="footer-link" href="www.linkedin.com/in/ivan-trejo-dev"> Ivan Trejo</a>
       <FontAwesomeIcon className="chain-icon" icon={faChain} />
-      <a href="https://www.linkedin.com/in/katarzyna-kw/">Katarzyna Wegrzynowicz</a>
+      <a className="footer-link" href="https://www.linkedin.com/in/katarzyna-kw/">Katarzyna Wegrzynowicz</a>
       </footer>
   )
 }

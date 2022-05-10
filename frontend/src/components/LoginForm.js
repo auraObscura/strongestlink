@@ -1,8 +1,12 @@
+import {useState} from 'react'
 import { useNavigate } from "react-router-dom"
 import StrongestLinkApi from "../api/StrongestLinkApi"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const LoginForm = (props) => {
   const nav = useNavigate();
+  const [loginError, setLoginError] = useState(false);
   
   const handleSubmit = async (evt) => {
     evt.preventDefault()
@@ -18,11 +22,15 @@ const LoginForm = (props) => {
       sessionStorage.setItem("user", JSON.stringify(data.user));
       const foundUser = JSON.parse(sessionStorage.getItem("user"));
       if (foundUser) {
+        setLoginError(false)
         console.log("founduser username: ", foundUser.username)
         const username = foundUser.username
         props.setUser(foundUser)
+        nav("/");
       }
-      nav("/");
+      else setLoginError(true)
+    } else {
+      setLoginError(true)
     }
   }
 
@@ -33,6 +41,12 @@ const LoginForm = (props) => {
         <input id="password" name="password" type="password" placeholder="Password" />
       </div>
       <button className="btn primary" type="submit">Login</button>
+      {loginError && 
+        <div className='error-msg'>
+          <FontAwesomeIcon icon={faCircleExclamation} className="error-icon"/>
+          <p>The username and password do not match.</p>
+        </div>
+        }
     </form>
   )
 }
