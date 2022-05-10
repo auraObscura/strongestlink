@@ -80,7 +80,7 @@ function WorkoutPage() {
       });
     }
     else {
-    return results.map(workout => <MyCard data={workout} handleClickHandler = {handleClickHandler}/>)
+    return data.map(workout => <MyCard data={workout} handleClickHandler = {handleClickHandler}/>)
   }
 }
 
