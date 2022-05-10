@@ -63,7 +63,7 @@ function WorkoutPage() {
 
   const renderDropdown = (data) => {
     return data.map(choice => {
-      return <option value={choice}>{choice}</option>;
+      return <option key={choice} value={choice}>{choice}</option>;
     });
   };
 

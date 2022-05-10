@@ -31,6 +31,17 @@ body {
   --landing-card:#7efac8;
   --landing-card-text: #1f2632;
   --landing-card-opacity: 50%;
+  --workout-btn-bg: #7cf7c6;
+  --workout-btn-text: #1f2632;
+  --workout-btn-hover-bg: #1f2632;
+  --workout-btn-hover-text: #7cf7c6;
+  --workout-btn-active-bg: #1f2632;
+  --workout-btn-active-text: #7cf7c6;
+  --workout-btn-active-border: #7cf7c6;
+  --workout-search-btn-bg: #7cf7c6;
+  --workout-search-btn-text: #1f2632;
+  --muscles-png: #cee3e9;
+  --muscles-png-hover: #7cf7c6;
 }
 
 .light {
@@ -54,7 +65,18 @@ body {
   --footer-link: #7efac8;
   --footer-link-hover: #72c6a0;
   --landing-head: #FFF;
-  --landing-card:#hsl(152, 100%, 97%);
+  --landing-card:hsl(152, 100%, 97%);
   --landing-card-text: #000000;
   --landing-card-opacity: 60%;
+  --workout-btn-bg: #1f2632;
+  --workout-btn-text: #7cf7c6;
+  --workout-btn-hover-bg: hsl(217, 19%, 38%);
+  --workout-btn-hover-text: hsl(152, 100%, 97%);
+  --workout-btn-active-bg: #7cf7c6;
+  --workout-btn-active-text: #1f2632;
+  --workout-btn-active-border: #1f2632;
+  --workout-search-btn-bg: hsl(217, 19%, 38%);
+  --workout-search-btn-text: #7cf7c6;
+  --muscles-png: hsl(217, 19%, 24%);
+  --muscles-png-hover: hsl(217, 19%, 38%);
 }
