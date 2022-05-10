@@ -7,3 +7,19 @@
   min-width: 80%!important;
   padding: 0px!important;
 }
+.btn-ivan{
+  position: relative;
+  background-color: #1f2632!important;
+}
+
+.btn-ivan:hover {
+  background-color: #576070!important;
+}
+
+.body-png {
+  display: flex;
+}
+
+/* .rbh:first-child {
+  background-color: red!important;
+} */

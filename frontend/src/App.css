@@ -520,6 +520,7 @@ h5 {
   font-size: 1rem;
   max-width: 11rem;
   color: #7cf7c6;
+  text-align: center;
 }
 
 .card-body {
@@ -631,4 +632,17 @@ h5 {
 .error-icon {
   padding-right: 5px;
   color: var(--error-icon);
+}
+
+.dumbbell-icon-ivan {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  color: #7cf7c6;
+}
+polygon {
+  fill: #cee3e9 !important;
+}
+
+polygon:hover {
+  fill: #7cf7c6!important;
 }

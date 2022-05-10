@@ -1,5 +1,4 @@
 import { Box, Button, ButtonGroup, SkeletonText } from "@chakra-ui/react";
-
 import "./GymForm.css";
 import StrongestLinkApi from "../../api/StrongestLinkApi";
 import {
@@ -29,6 +28,8 @@ import GymImage from "./GymImage";
 
 import "./GymForm.css";
 import { ChakraProvider } from "@chakra-ui/react";
+
+import './Map.css';
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = "AIzaSyCNzw2Ysw63-Ms5CsqT1EpxRRTvFrHKiEw";
 
@@ -73,8 +74,6 @@ function Map(props) {
   const getMapMarkers = async () => {
     const markerData = await StrongestLinkApi.getPins();
     console.log(markerData);
-    // console.log('hello1', markerData)
-
     let gymMaterialMarker = [];
     markerData.map((data) =>
       gymMaterialMarker.push({
@@ -218,7 +217,7 @@ function Map(props) {
           flex="1"
           width="100%"
         >
-          <Button onClick={getLocation}>Click to find location</Button>
+          <Button className="btn-ivan"onClick={getLocation}>Click to find location</Button>
         </ButtonGroup>
       </Box>
     </div>
