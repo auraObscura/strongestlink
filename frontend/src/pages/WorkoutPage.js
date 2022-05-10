@@ -63,7 +63,7 @@ function WorkoutPage() {
 
   const renderDropdown = (data) => {
     return data.map(choice => {
-      return <option value={choice}>{choice}</option>;
+      return <option key={choice} value={choice}>{choice}</option>;
     });
   };
 
@@ -76,7 +76,7 @@ function WorkoutPage() {
       let endOfPage = (page === 1 ? (page * 18): (page * 18)  + 18)
       let starting = 0
       return results.slice(currentPage, endOfPage).map(data => {
-          return <MyCard data={data} key={data.id} />;
+          return <MyCard data={data} key={data.id} handleClickHandler = {handleClickHandler}/>;
       });
     }
     else {
