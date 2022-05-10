@@ -37,62 +37,62 @@ function App() {
   // HashRouter has been elevated to index.js, I find it works better like that if your routing structure gets complicated
   return (
     <div className={`App ${theme}`}>
-      <Header
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        user={user}
-        setUser={setUser}
-        setTheme={setTheme}
-      />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <LandingPage
-              isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
-              user={user}
-              setUser={setUser}
-            />
-          }
+      <div className="site-content">
+        <Header
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          user={user}
+          setUser={setUser}
+          setTheme={setTheme}
         />
-        <Route exact path="register" element={<RegisterForm />} />
-        <Route
-          exact
-          path="login"
-          element={
-            <LoginForm setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-          }
-        />
-        <Route exact path="/my-profile" element={<MyPostsPage user={user} />} />
-        <Route exact path="/posts" element={<AllPostsPage user={user} />} />
-        <Route exact path="/posts/:postID" element={<PostPage user={user} />} />
-        <Route exact path="/map" element={<Map user={user} />} />
-        <Route exact path="/map" element={<Map user={user} />} />
-        <Route
-          exact
-<<<<<<< HEAD
-          path="/map"
-          element={
-            <Map user={user} />
-          } />
-        <Route
-          exact
-=======
->>>>>>> 2856b03e15425d923fe90083fb0afd78ceaf62d5
-          path="map/location/:locationID"
-          element={<LocationPage user={user} />}
-        />
-        <Route
-          exact
-          path="/user/:userID"
-          element={<UserProfilePage user={user} />}
-        />
-        <Route exact path="/leaderboard" element={<Leaderboard />} />
-        <Route exact path="/workouts" element={<WorkoutPage />} />
-        <Route exact path="/mygym" element={<GymPage user={user} />} />
-      </Routes>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <LandingPage
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                user={user}
+                setUser={setUser}
+              />
+            }
+          />
+          <Route exact path="register" element={<RegisterForm />} />
+          <Route
+            exact
+            path="login"
+            element={
+              <LoginForm setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
+            }
+          />
+          <Route
+            exact
+            path="/my-profile"
+            element={<MyPostsPage user={user} />}
+          />
+          <Route exact path="/posts" element={<AllPostsPage user={user} />} />
+          <Route
+            exact
+            path="/posts/:postID"
+            element={<PostPage user={user} />}
+          />
+          <Route exact path="/map" element={<Map user={user} />} />
+          <Route
+            exact
+            path="map/location/:locationID"
+            element={<LocationPage user={user} />}
+          />
+          <Route
+            exact
+            path="/user/:userID"
+            element={<UserProfilePage user={user} />}
+          />
+          <Route exact path="/leaderboard" element={<Leaderboard />} />
+          <Route exact path="/workouts" element={<WorkoutPage />} />
+          <Route exact path="/mygym" element={<GymPage user={user} />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

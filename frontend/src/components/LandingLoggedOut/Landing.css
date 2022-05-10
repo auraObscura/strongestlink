@@ -65,3 +65,10 @@ header {
     min-height: 130px;
   }
 }
+
+/* @media(min-width: 1000px) {
+  .landing-container {
+    margin-top: -50px;
+    width: 100%;
+  }  
+} */

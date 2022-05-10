@@ -3,10 +3,15 @@
   font-size: 16px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--base-text);
+}
+
+/* wrapper around header and site content minus footer -- allows sticky footer at bottom */
+.site-content {
+  flex: 1;
 }
 
 section {
