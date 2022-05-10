@@ -18,7 +18,7 @@ function PostDetail (props) {
         {
           props.user.username == props.post.user.username 
           && 
-          <div>
+          <div className="post-details-button-container">
             <button className="btn" onClick = {() => props.setWantToEditCaption(!props.wantToEditCaption)}>Edit Caption</button> 
             <button className="btn secondary" onClick = {props.handleDeletePost}>Delete Post</button>
           </div>

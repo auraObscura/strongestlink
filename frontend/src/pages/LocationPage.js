@@ -45,7 +45,7 @@ function LocationPage(props) {
   const renderProfiles = () => {
     const dataProfiles = []
     profiles.forEach(id => {dataProfiles.push(id)})
-    return dataProfiles.map((profile) => {return <li >
+    return dataProfiles.map((profile) => {return <li className='body-list-items'>
       <a className="gymLink" href={`#/user/${profile.id}`}>{profile.user.username}<ProfileSmallImage image={profile.profile_img}/>
         </a>
     </li>})

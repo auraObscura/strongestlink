@@ -33,19 +33,21 @@ const RegisterForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} method="POST">
-      <input id="username" name="username" type="text" placeholder="Username" required />
-      <input id="password1" name="password" type="password" placeholder="Password" required minLength="8"/>
-      <input id="password2" name="password" type="password" placeholder="Password (Again)" required minLength="8"/>
-      <button className="btn primary" type="submit">Register</button>
-      {signupError && 
-        <div className='error-msg'>
-          <FontAwesomeIcon icon={faCircleExclamation} className="error-icon"/>
-          <p>Error! Please try again.</p>
-        </div>
-        }
+    <section className='form-container'>
+      <form onSubmit={handleSubmit} method="POST">
+        <input id="username" name="username" type="text" placeholder="Username" required />
+        <input id="password1" name="password" type="password" placeholder="Password" required minLength="8"/>
+        <input id="password2" name="password" type="password" placeholder="Password (Again)" required minLength="8"/>
+        <button className="btn primary" type="submit">Register</button>
+        {signupError && 
+          <div className='error-msg'>
+            <FontAwesomeIcon icon={faCircleExclamation} className="error-icon"/>
+            <p>Error! Please try again.</p>
+          </div>
+          }
 
-    </form>
+      </form>
+    </section>
   )
 }
 
