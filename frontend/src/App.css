@@ -688,3 +688,21 @@ ol, ul {
   justify-content: space-between;
   align-items: center;
 }
+
+.history{
+  text-align: center;
+}
+
+.Chart{
+  height: 50%;
+}
+
+.myChart{
+  display: inline-block;
+  height: 75rem;
+  color: #ffffff;
+}
+
+.dataList{
+  float: left;
+}
