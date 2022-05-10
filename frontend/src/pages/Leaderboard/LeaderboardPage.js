@@ -9,25 +9,34 @@ function Leaderboard() {
 
   const handleClick = async (e) => {
     const exercisesAll = await StrongestLinkApi.getLifts();
-    // console.log(exercisesAll)
-    // console.log(e.target.id)
     const filteredExercise = exercisesAll.filter(
       (exercise) => exercise.type === e.target.id
     );
-    console.log(filteredExercise);
+    let topFiveLifts = []
+    
+    for(let object of filteredExercise){
+      topFiveLifts.push(object)
+    }
 
-    setExerciseData(filteredExercise);
-    setCardioData([]);
-  };
+      topFiveLifts.sort((a,b) => (parseInt(b.weight) - parseInt(a.weight)))
+      setExerciseData(topFiveLifts.slice(-5));
+      setCardioData([]);
+    };
 
   const cardioClick = async (e) => {
     const allCardio = await StrongestLinkApi.getCardio();
     const filteredCardio = allCardio.filter(
       (exercise) => exercise.type === e.target.id
     );
-    setCardioData(filteredCardio);
+    let topFiveCardio = []
+    for(let object of filteredCardio){
+      topFiveCardio.push(object)
+    }
+    topFiveCardio.sort((a,b) => (parseInt(b.miles) - (parseInt(a.miles))))
+    setCardioData(topFiveCardio.slice(-5));
     setExerciseData([]);
   };
+
   //rendering lift stats
   const renderLifts = () => {
     if (handleClick) {
@@ -37,7 +46,7 @@ function Leaderboard() {
             return (
               <div key={`exercise-${exercise.id}`}>
                 <li>
-                  <h3>{index + 1 + ". "} Name of User</h3>
+                  <h3>{index + 1 + ". "} {exercise.user.username}</h3>
                 </li>
                 <li>
                   {exercise.weight} lbs
@@ -59,7 +68,7 @@ function Leaderboard() {
             return (
               <div key={`cardio-${exercise.id}`}>
                 <li>
-                  <h3> {index + 1 + ". "} Cardio User</h3>
+                  <h3> {index + 1 + ". "} {exercise.user.username} </h3>
                 </li>
                 <li>
                   {exercise.miles} miles
