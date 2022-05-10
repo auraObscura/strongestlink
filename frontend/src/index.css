@@ -27,6 +27,10 @@ body {
   --error-icon: #7efac8;
   --footer-link: #7efac8;
   --footer-link-hover: #72c6a0;
+  --landing-head: #FFF;
+  --landing-card:#7efac8;
+  --landing-card-text: #1f2632;
+  --landing-card-opacity: 50%;
 }
 
 .light {
@@ -49,4 +53,8 @@ body {
   --error-icon: #1f2632;
   --footer-link: #7efac8;
   --footer-link-hover: #72c6a0;
+  --landing-head: #FFF;
+  --landing-card:#hsl(152, 100%, 97%);
+  --landing-card-text: #000000;
+  --landing-card-opacity: 60%;
 }

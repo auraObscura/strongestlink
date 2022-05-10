@@ -17,6 +17,7 @@ header {
 .landing-heading {
   font-size: 2rem;
   text-transform: none;
+  color: var(--landing-head);
 }
 
 .landing-cards {
@@ -27,14 +28,14 @@ header {
 }
 
 .landing-card {
-  background-color: var(--primary--bright);
-  color: var(--neutral--dark);
+  background-color: var(--landing-card);
+  color: var(--landing-card-text);
   padding: 1rem;
   margin: 1rem;
   border-radius: 50px;
   flex: 1 1 auto;
   min-width: 85%;
-  opacity: 50%;
+  opacity: var(--landing-card-opacity);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
