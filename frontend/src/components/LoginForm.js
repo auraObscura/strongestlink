@@ -35,19 +35,21 @@ const LoginForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} method="POST">
-      <div className="input-container">
-        <input id="username" name="username" type="text" placeholder="Username" />
-        <input id="password" name="password" type="password" placeholder="Password" />
-      </div>
-      <button className="btn primary" type="submit">Login</button>
-      {loginError && 
-        <div className='error-msg'>
-          <FontAwesomeIcon icon={faCircleExclamation} className="error-icon"/>
-          <p>The username and password do not match.</p>
+    <section className='form-container'>
+      <form onSubmit={handleSubmit} method="POST">
+        <div className="input-container">
+          <input id="username" name="username" type="text" placeholder="Username" />
+          <input id="password" name="password" type="password" placeholder="Password" />
         </div>
-        }
-    </form>
+        <button className="btn primary" type="submit">Login</button>
+        {loginError && 
+          <div className='error-msg'>
+            <FontAwesomeIcon icon={faCircleExclamation} className="error-icon"/>
+            <p>The username and password do not match.</p>
+          </div>
+          }
+      </form>
+    </section>
   )
 }
 

@@ -115,6 +115,10 @@ form,
   align-items: center;
 }
 
+.form-container {
+  margin-top: 5rem;
+}
+
 form input,
 select {
   padding: 0.5rem;
@@ -199,6 +203,13 @@ textarea {
   justify-content: flex-start;
 }
 
+.post-details-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .post-details-container {
   flex-flow: column nowrap;
   justify-content: center;
@@ -225,7 +236,7 @@ textarea {
 }
 
 .commenter {
-  color: var(--primary--dark);
+  color: var(--user-link);
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
@@ -311,9 +322,11 @@ textarea {
   align-items: center;
 }
 
-.avatar-result {
+.avatar-result,
+.avatar-friend {
   width: 50px;
   height: 50px;
+
 }
 
 .search-results {
@@ -333,7 +346,15 @@ textarea {
 }
 
 .friend-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
   padding: .5rem;
+}
+
+.friend-container p {
+  margin-top: 0;
 }
 
 a {
@@ -636,4 +657,25 @@ h5 {
 .error-icon {
   padding-right: 5px;
   color: var(--error-icon);
+}
+
+
+/* lists css */
+ol, ul {
+  padding-left: 0;
+}
+
+.body-list-items {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.avatar-list {
+  margin-left: 5px;
+}
+
+.gymLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
