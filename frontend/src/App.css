@@ -142,8 +142,8 @@ select {
 }
 
 .edit-form input,
-select,
-textarea {
+.edit-form select,
+.edit-form textarea {
   width: 70%;
 }
 
@@ -589,7 +589,8 @@ h5 {
   margin-top: 0rem;
   font-size: 1.5rem;
   width: 100%;
-  background-color: #7cf7c6;
+  background-color: var(--workout-search-btn-bg);
+  color: var(--workout-search-btn-text);
   border-radius: 2rem;
   transition: ease-in-out .2s;
 }
@@ -615,26 +616,21 @@ h5 {
   display: flex;
 }
 
-.drop-downs {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
 .page-btn {
-  background-color: #7cf7c6;
-  color: #1f2632;
+  background-color: var(--workout-btn-bg);
+  color: var(--workout-btn-text);
+  border: 0;
 }
 
 .page-btn:hover {
-  background-color: #1f2632;
-  color: #7cf7c6;
+  background-color: var(--workout-btn-hover-bg);
+  color: var(--workout-btn-hover-text);
 }
 
 .page-btn-active {
-  background-color: #1f2632;
-  color: #7cf7c6;
+  background-color: var(--workout-btn-active-bg);;
+  color: var(--workout-btn-active-text);
+  border: 1px solid var(--workout-btn-active-border);
 }
 
 .page-btn-container{
@@ -664,11 +660,11 @@ h5 {
   color: #7cf7c6;
 }
 polygon {
-  fill: #cee3e9 !important;
+  fill: var(--muscles-png)!important;
 }
 
 polygon:hover {
-  fill: #7cf7c6!important;
+  fill: var(--muscles-png-hover)!important;
 }
 /* lists css */
 ol, ul {
@@ -688,3 +684,63 @@ ol, ul {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Workouts pg CSS */
+/* mobile */
+.search-section {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+  border: 0;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.drop-downs {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-png {
+  padding: 1rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(min-width: 768px) {
+
+  .search-section {
+    width: 100%;
+  }
+
+  .search-button {
+    max-width: 200px;
+  }
+  
+  .drop-downs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
+
+  .results {
+    width: 100%;
+  }
+  
+  .body-png {
+    width: 30%;
+  }
+}
+
