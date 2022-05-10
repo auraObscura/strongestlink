@@ -69,18 +69,9 @@ function App() {
         <Route exact path="/posts" element={<AllPostsPage user={user} />} />
         <Route exact path="/posts/:postID" element={<PostPage user={user} />} />
         <Route exact path="/map" element={<Map user={user} />} />
-        <Route exact path="/map" element={<Map user={user} />} />
+        
         <Route
           exact
-<<<<<<< HEAD
-          path="/map"
-          element={
-            <Map user={user} />
-          } />
-        <Route
-          exact
-=======
->>>>>>> 2856b03e15425d923fe90083fb0afd78ceaf62d5
           path="map/location/:locationID"
           element={<LocationPage user={user} />}
         />
