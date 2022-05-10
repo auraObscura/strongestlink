@@ -8,12 +8,14 @@ function PostForm(props) {
         type="file"
         name="image"
         onChange={(event) => props.setImageSelected(event.target.files[0])}
+        required
       />
       <input
         className="input-img"
         type="text"
         name="caption"
         placeholder="Enter caption"
+        required
       />
       {/* <input type="submit" value="Submit" className="btn primary" /> */}
       {/* <input className="input-img" type="text" name="caption" placeholder="Enter caption" required/> */}
