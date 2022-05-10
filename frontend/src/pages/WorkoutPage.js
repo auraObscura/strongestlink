@@ -11,6 +11,9 @@ function WorkoutPage() {
   const [topdropvalue, setTopdropvalue] = useState('bodyPart');
   const [responseData, setResponseData] = useState([]);
   const [deepSearch, setDeepSearch] = useState(bodyoptions);
+  const [page, setPage] = useState(1)
+  const [pageContent, setPageContent] = useState([])
+  
 
   useEffect(() => {
     renderdrop();
@@ -20,6 +23,11 @@ function WorkoutPage() {
   useEffect(() => {
     renderdrop();
   }, [topdropvalue]);
+
+
+  // useEffect(() => {
+  //   renderCards()
+  // }, [page]);
 
   const renderdrop = () => {
     if (topdropvalue == 'target') {
@@ -43,24 +51,50 @@ function WorkoutPage() {
       });
   };
 
-
   const handleSearch = async (e) => {
     e.preventDefault();
     const workoutListData = fetchData(e.target.elements['topSearch'].value, e.target.elements['deepsearch'].value);
   };
-
 
   const renderDropdown = (data) => {
     return data.map(choice => {
       return <option value={choice}>{choice}</option>;
     });
   };
+  
+
+  const renderCards = (data) => {
+    const results = []
+    let starting = 0
+    if (page == 1 ) {
+      starting = 0
+    }
+    else {
+      starting = (page * 7) + 1
+    }
+
+    for (let i = starting; i <= (page * 7); i++) {
+      results.push(data[i])
+    }
+    return results.map(workout => <MyCard data={workout} />)
+  }
+
+  
+
+  const renderButtons = (data) => {
+    const pageButtons = []
+    const pages = data.length / 7
+    for(let i = 1; i <= pages; i++) {
+      pageButtons.push(<button key={i} onClick={() => {setPage(i)} } className={page == i ? "page-btn-active" : "page-btn"}>{i}</button>)
+    }
+    return pageButtons
+  }
 
   return (
     <section className="gym-page">
-      <h1>Need a quick workout?</h1>
-      <form onSubmit={handleSearch}>
-        <label>Search For your workout</label>
+      <div className="search-section">
+      <h2>Need a quick workout?</h2>
+      <form className="drop-downs" onSubmit={handleSearch}>
         <select onChange={(event) => setTopdropvalue(event.target.value)} name="topSearch" >
           <option value="bodyPart"> Body Part</option>
           <option value="target"> Target Muscle</option>
@@ -69,9 +103,11 @@ function WorkoutPage() {
         <select name="deepsearch">
           {renderDropdown(deepSearch)}
         </select>
-        <button type="submit"> Search </button>
+        <button className="search-button" type="submit"> Search </button>
       </form>
-      {responseData.length > 0 ? <MyCard data={responseData[0]} /> : ''}
+      </div>
+      <div className="page-btn-container">{responseData.length > 0 ? renderButtons(responseData) : ''}</div>
+      <div className="results"> {responseData.length > 0 ? renderCards(responseData) : ''}</div>
     </section>
    
   );

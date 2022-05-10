@@ -13,7 +13,7 @@ import Leaderboard from "./pages/Leaderboard/LeaderboardPage";
 import MyPostsPage from "./pages/MyPostsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 import LocationPage from "./pages/LocationPage";
-import GymPage from "./pages/GymPage"
+import GymPage from "./pages/GymPage";
 import Footer from "./components/Footer";
 
 function App() {
@@ -71,15 +71,14 @@ function App() {
         <Route exact path="/map" element={<Map user={user} />} />
         <Route
           exact
-<<<<<<< HEAD
           path="/map"
           element={
-              <Map user={user} />
-          }
-=======
+            <Map user={user} />
+          } />
+        <Route
+          exact
           path="map/location/:locationID"
           element={<LocationPage user={user} />}
->>>>>>> 73bc8c467ce89be38398a0420eacc20cb5d48b65
         />
         <Route
           exact

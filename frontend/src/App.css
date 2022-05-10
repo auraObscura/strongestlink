@@ -1,4 +1,3 @@
-
 .App {
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -125,7 +124,7 @@ select {
 
 .edit-form {
   background-color: var(--edit-profile-bg);
-  margin : 3rem 1rem;
+  margin: 3rem 1rem;
   padding: 1rem;
   margin-bottom: 0;
   color: white;
@@ -134,7 +133,7 @@ select {
   margin-bottom: 30px;
 }
 
-.edit-form input, 
+.edit-form input,
 select,
 textarea {
   width: 70%;
@@ -253,7 +252,7 @@ textarea {
 
 .profile-container {
   width: 90%;
-  display:flex;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
@@ -490,8 +489,9 @@ h5 {
   }
 
   .profile-container {
-    width: 30%; 
+    width: 30%;
   }
+
   /* .profile-card {
     width: 35%;
   } */
@@ -507,15 +507,19 @@ h5 {
 
 /* .///////////////Card Css */
 .card {
-  padding: 1.2rem;
+  padding: 1rem;
   border-radius: 3rem;
   background-color: #1f2632;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: .5rem;
+  max-width: 11rem;
 }
+
 .card-name {
   font-size: 1rem;
+  max-width: 11rem;
   color: #7cf7c6;
 }
 
@@ -536,21 +540,81 @@ h5 {
 
 .card-image {
   border-radius: 3rem;
-  height: 13rem;
-  width: 13rem;
-  margin-bottom: 3rem;
+  height: 11rem;
+  width: 11rem;
+  margin-bottom: 1rem;
 }
 
-.card-button{
+.card-button {
+  transition: ease-in-out .2s;
   margin-top: 1rem;
   font-size: 1.5rem;
+  border-radius: 3rem;
   width: 100%;
   background-color: #7cf7c6;
 }
+
 .card-button:hover {
   margin-top: 1rem;
   font-size: 1.5rem;
   width: 100%;
   background-color: #1f2632;
   color: #7cf7c6;
+}
+.search-button{
+  margin-top: 0rem;
+  font-size: 1.5rem;
+  width: 100%;
+  background-color: #7cf7c6;
+  border-radius: 2rem;
+  transition: ease-in-out .2s;
+}
+
+.search-button:hover{
+  border-radius: 3rem;
+  margin-top: 0rem;
+  font-size: 1.5rem;
+  width: 100%;
+  background-color: #1f2632;
+  color: #7cf7c6;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.search-section {
+  display: flex;
+}
+
+.drop-downs {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.page-btn {
+  background-color: #7cf7c6;
+  color: #1f2632;
+}
+
+.page-btn:hover {
+  background-color: #1f2632;
+  color: #7cf7c6;
+}
+
+.page-btn-active {
+  background-color: #1f2632;
+  color: #7cf7c6;
+}
+
+.page-btn-container{
+  display: flex;
+  gap: 0.5rem;
+  transition: ease-in-out .2s;
 }
