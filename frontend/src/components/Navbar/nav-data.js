@@ -27,10 +27,7 @@ export const navData = [
   {
     name: "Gyms",
     url: "mygym",
-<<<<<<< HEAD
-=======
     // url: "gym",
->>>>>>> 2856b03e15425d923fe90083fb0afd78ceaf62d5
     loggedin: true,
   },
   {

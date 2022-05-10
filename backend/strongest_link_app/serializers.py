@@ -94,8 +94,20 @@ class WeightliftingSerializer(serializers.ModelSerializer):
         model = Weightlifting
         fields = ["id", "weight", "user", "date", "type"]
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        user = User.objects.get(pk=data["user"])
+        data["user"] = {"username": user.username, "id": user.id}
+        return data
+
 
 class CardioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cardio
         fields = ["id", "miles", "user", "date", "type"]
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        user = User.objects.get(pk=data["user"])
+        data["user"] = {"username": user.username, "id": user.id}
+        return data
