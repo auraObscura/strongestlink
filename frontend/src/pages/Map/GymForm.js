@@ -7,7 +7,6 @@ function GymForm(props) {
   const [nameField, setNameField] = useState("");
   const user = props.username;
 
-  
   const handleSaveWorkouts = async (e) => {
     e.preventDefault();
     console.log(e.target.elements);
@@ -17,7 +16,7 @@ function GymForm(props) {
       description: "a location",
       latitude: e.target.elements["lat"].value,
       longitude: e.target.elements["lng"].value,
-      attendees: [user.pk]
+      attendees: [user.pk],
     };
 
     const data = await StrongestLinkApi.postPin(gymData);
@@ -46,7 +45,7 @@ function GymForm(props) {
         <input name="lat" type="hidden" value={props.lat} />
         <input name="lng" type="hidden" value={props.lng} />
         <Button className="button" type="submit">
-          Create Gym Location
+          Create Activity Location
         </Button>
       </form>
     </div>

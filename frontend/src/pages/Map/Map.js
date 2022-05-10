@@ -29,7 +29,7 @@ import GymImage from "./GymImage";
 import "./GymForm.css";
 import { ChakraProvider } from "@chakra-ui/react";
 
-import './Map.css';
+import "./Map.css";
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = "AIzaSyCNzw2Ysw63-Ms5CsqT1EpxRRTvFrHKiEw";
 
@@ -88,139 +88,144 @@ function Map(props) {
     );
     setGymarkers(gymMaterialMarker);
   };
-  
-  const icon = "./scg.svg"
+
+  const icon = "./scg.svg";
 
   return (
     <ChakraProvider>
-    <div style={{ width: "95%", height: "500px" }}>
-      <Box position="absolute" left={0} top={40} h="80%" w="100%">
-        {/* Google Map Box */}
-        <GoogleMap
-          onClick={(event) => {
-            setMarkers([
-              {
-                lat: event.latLng.lat(),
-                lng: event.latLng.lng(),
-                time: new Date(),
-              },
-            ]);
-            setSelectedGym(null);
-            setSelected(null);
-          }}
-          center={{ lat, lng }}
-          zoom={15}
-          mapContainerStyle={{ width: "100%", height: "100%" }}
-          options={{
-            zoomControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
-            styles: MapStyles,
-          }}
-          onLoad={(map) => setMap(map)}
-        >
-          {/* ////////////////////// (Gym Pin Locations) ////////////////////////// */}
-          {gymmarkers.map((marker) => (
-            <Marker
-              icon={{
-                url: icon,
-                scaledSize: new window.google.maps.Size(40, 40),
-                origin: new window.google.maps.Point(0, 0),
-              }}
-              key={marker.time.toISOString()}
-              position={{ lat: marker.lat, lng: marker.lng }}
-              onClick={() => {
-                setSelectedGym(marker);
-                setSelected(null);
-                setMarkers([]);
-              }}
-            />
-          ))}
-          {selectedGym ? (
-            <InfoWindow
-              className="infoWindow"
-              onCloseClick={() => setSelectedGym(null)}
-              position={{ lat: selectedGym.lat, lng: selectedGym.lng }}
-            >
-              <div className="info-data">
-                <h1>{selectedGym.name.toUpperCase()}</h1>
-                <GymImage />
-                {/* <p>{selectedGym.type}</p> */}
-                <div className="button-group">
-                  <Button className="info-btn">
-                    <NavLink className="gymLink" to={`location/${selectedGym.id}`}>
-                      Link to gym page
-                    </NavLink>
-                  </Button>
-                </div>
-              </div>
-            </InfoWindow>
-          ) : null}
-          {/* ////////////////////// (Location of User ) ////////////////////////// */}
-          {markers.map((marker) => (
-            <Marker
-              icon={{
-                // url: './scg.svg',
-                scaledSize: new window.google.maps.Size(40, 40),
-                origin: new window.google.maps.Point(0, 0),
-              }}
-              key={marker.time.toISOString()}
-              position={{ lat: marker.lat, lng: marker.lng }}
-              onClick={() => {
-                setSelected(marker);
-              }}
-            />
-          ))}
-          {selected ? (
-            <InfoWindow
-              onCloseClick={() => {
-                setSelected(null);
-                setMarkers([]);
-              }}
-              position={{ lat: selected.lat, lng: selected.lng }}
-            >
-              <GymForm
-                refresh={getLocation}
-                removePin={setMarkers}
-                closeinfoWindow={setSelected}
-                lat={selected.lat}
-                lng={selected.lng}
-                username={props.user}
-              />
-            </InfoWindow>
-          ) : null}
-          <Marker
-            icon={{
-              scaledSize: new window.google.maps.Size(30, 30),
-              origin: new window.google.maps.Point(0, 0),
+      <div style={{ width: "95%", height: "500px" }}>
+        <Box position="absolute" left={0} top={40} h="80%" w="100%">
+          {/* Google Map Box */}
+          <GoogleMap
+            onClick={(event) => {
+              setMarkers([
+                {
+                  lat: event.latLng.lat(),
+                  lng: event.latLng.lng(),
+                  time: new Date(),
+                },
+              ]);
+              setSelectedGym(null);
+              setSelected(null);
             }}
-            position={{ lat, lng }}
-          />
+            center={{ lat, lng }}
+            zoom={15}
+            mapContainerStyle={{ width: "100%", height: "100%" }}
+            options={{
+              zoomControl: false,
+              streetViewControl: false,
+              mapTypeControl: false,
+              fullscreenControl: false,
+              styles: MapStyles,
+            }}
+            onLoad={(map) => setMap(map)}
+          >
+            {/* ////////////////////// (Gym Pin Locations) ////////////////////////// */}
+            {gymmarkers.map((marker) => (
+              <Marker
+                icon={{
+                  url: icon,
+                  scaledSize: new window.google.maps.Size(40, 40),
+                  origin: new window.google.maps.Point(0, 0),
+                }}
+                key={marker.time.toISOString()}
+                position={{ lat: marker.lat, lng: marker.lng }}
+                onClick={() => {
+                  setSelectedGym(marker);
+                  setSelected(null);
+                  setMarkers([]);
+                }}
+              />
+            ))}
+            {selectedGym ? (
+              <InfoWindow
+                className="infoWindow"
+                onCloseClick={() => setSelectedGym(null)}
+                position={{ lat: selectedGym.lat, lng: selectedGym.lng }}
+              >
+                <div className="info-data">
+                  <h1>{selectedGym.name.toUpperCase()}</h1>
+                  <GymImage selectedGym={selectedGym} />
+                  <p>{selectedGym.type}</p>
+                  <div className="button-group">
+                    <Button className="info-btn">
+                      <NavLink
+                        className="gymLink"
+                        to={`location/${selectedGym.id}`}
+                      >
+                        Link to location page
+                      </NavLink>
+                    </Button>
+                  </div>
+                </div>
+              </InfoWindow>
+            ) : null}
+            {/* ////////////////////// (Location of User ) ////////////////////////// */}
+            {markers.map((marker) => (
+              <Marker
+                icon={{
+                  // url: './scg.svg',
+                  scaledSize: new window.google.maps.Size(40, 40),
+                  origin: new window.google.maps.Point(0, 0),
+                }}
+                key={marker.time.toISOString()}
+                position={{ lat: marker.lat, lng: marker.lng }}
+                onClick={() => {
+                  setSelected(marker);
+                }}
+              />
+            ))}
+            {selected ? (
+              <InfoWindow
+                onCloseClick={() => {
+                  setSelected(null);
+                  setMarkers([]);
+                }}
+                position={{ lat: selected.lat, lng: selected.lng }}
+              >
+                <GymForm
+                  refresh={getLocation}
+                  removePin={setMarkers}
+                  closeinfoWindow={setSelected}
+                  lat={selected.lat}
+                  lng={selected.lng}
+                  username={props.user}
+                />
+              </InfoWindow>
+            ) : null}
+            <Marker
+              icon={{
+                scaledSize: new window.google.maps.Size(30, 30),
+                origin: new window.google.maps.Point(0, 0),
+              }}
+              position={{ lat, lng }}
+            />
 
-          {/* ////////////////////// () ////////////////////////// */}
-        </GoogleMap>
-      </Box>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        p={0}
-        borderRadius="lg"
-        mt={4}
-        zIndex="1"
-      >
-        <ButtonGroup
+            {/* ////////////////////// () ////////////////////////// */}
+          </GoogleMap>
+        </Box>
+        <Box
           display="flex"
           justifyContent="center"
           alignItems="center"
-          flex="1"
-          width="100%"
+          p={0}
+          borderRadius="lg"
+          mt={4}
+          zIndex="1"
         >
-          <Button className="btn-ivan"onClick={getLocation}>Click to find location</Button>
-        </ButtonGroup>
-      </Box>
-    </div>
+          <ButtonGroup
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            flex="1"
+            width="100%"
+          >
+            <Button className="btn-ivan" onClick={getLocation}>
+              Click to find location
+            </Button>
+          </ButtonGroup>
+        </Box>
+      </div>
     </ChakraProvider>
   );
 }
