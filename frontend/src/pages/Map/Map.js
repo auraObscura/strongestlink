@@ -31,7 +31,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import "./Map.css";
 
-const REACT_APP_GOOGLE_MAPS_API_KEY = "AIzaSyCNzw2Ysw63-Ms5CsqT1EpxRRTvFrHKiEw";
+const REACT_APP_GOOGLE_MAPS_API_KEY = environ("REACT_APP_GOOGLE_MAPS_KEY");
 
 function Map(props) {
   const [lat, setLat] = useState(48.8584);
